@@ -240,6 +240,10 @@ int main(void) {
             uint64_t addr_modo = base + 0x15600060ULL;
             int modo_actual = 0;
 
+            /* Asegurar g_ia_mtp.activos = 0 siempre para evitar congelacion de los 3 defensas */
+            uint32_t val_ia_mtp = 0;
+            kernel_proc_copyin(fc_pid, &val_ia_mtp, (intptr_t)(base + 0x1561dee0ULL), sizeof(val_ia_mtp));
+
             if (kernel_proc_copyout(fc_pid, (intptr_t)addr_modo, &modo_actual, sizeof(modo_actual)) == 0) {
                 uint64_t db_addr = resolver_db(fc_pid, base);
 
