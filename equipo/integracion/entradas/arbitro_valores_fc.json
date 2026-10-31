@@ -1,0 +1,76 @@
+{
+  "sistema": "arbitro_faltas",
+  "descripcion": "Subsistema 1: Parametros de forcejeo, faltas y severidad arbitral (Modo PES 2021 en FC 27)",
+  "parametros": [
+    {
+      "grupo": "gp_defense",
+      "instancia": "gp_defense_pushpull",
+      "campo": "PushPull_MedIntensityThreshold",
+      "offset": "0xa8",
+      "tipo": "f32",
+      "valor_fc": 0.40,
+      "valor_pes": 0.50,
+      "motivo": "Evita tropiezos o desestabilizaciones automaticas ante choques leves clasificados en nivel PES 1 (0.39)"
+    },
+    {
+      "grupo": "gp_defense",
+      "instancia": "gp_defense_pushpull",
+      "campo": "PushPull_HighIntensityThreshold",
+      "offset": "0xb0",
+      "tipo": "f32",
+      "valor_fc": 0.85,
+      "valor_pes": 0.88,
+      "motivo": "Reserva el desequilibrio severo unicamente para colisiones fuertes de nivel PES 3 (0.90)"
+    },
+    {
+      "grupo": "gp_defense",
+      "instancia": "gp_defense_pushpull",
+      "campo": "PushPull_FallThreshold",
+      "offset": "0xa0",
+      "tipo": "f32",
+      "valor_fc": 0.85,
+      "valor_pes": 0.92,
+      "motivo": "Reduce caidas al suelo involuntarias en forcejeos hombro a hombro"
+    },
+    {
+      "grupo": "gp_rules",
+      "instancia": "gp_rules_foul",
+      "campo": "ShoulderChallengesAngleGapThreshold",
+      "offset": "0x94",
+      "tipo": "f32",
+      "valor_fc": 115.5,
+      "valor_pes": 135.0,
+      "motivo": "Amplia la ventana angular de disputa fisica limpia hombro con hombro sin que se senale falta"
+    },
+    {
+      "grupo": "gp_rules",
+      "instancia": "gp_rules_foul",
+      "campo": "AdvantageWindowTimeLength",
+      "offset": "0x70",
+      "tipo": "i32",
+      "valor_fc": 180,
+      "valor_pes": 210,
+      "motivo": "Extiende la ley de la ventaja a ~3.5 s (210 ticks a 60 fps) alineado con PES 2021"
+    },
+    {
+      "grupo": "gp_rules",
+      "instancia": "gp_rules_refereestrictness",
+      "campo": "referee_strictness_foul_intensity",
+      "offset": "0x70",
+      "tipo": "arr_f32",
+      "valor_fc": [1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5],
+      "valor_pes": [1.15, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15],
+      "motivo": "Atenua el multiplicador de severidad de faltas en todos los estilos arbitrales"
+    },
+    {
+      "grupo": "gp_rules",
+      "instancia": "gp_rules_refereestrictness",
+      "campo": "referee_strictness_yellowcard_threshold",
+      "offset": "0x118",
+      "tipo": "f32",
+      "valor_fc": 60.5,
+      "valor_pes": 66.0,
+      "motivo": "Eleva el umbral de amonestacion para evitar tarjetas amarillas excesivas en faltas comunes"
+    }
+  ]
+}

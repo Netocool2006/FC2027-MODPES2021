@@ -1,0 +1,29 @@
+{
+  "sistema": "ia_tactica_bloque",
+  "descripcion": "Subsistema 2: Compactacion de lineas y bloque tactico PES 2021 (distancia FW-DF 31.5 m y anchura reducida)",
+  "parametros": [
+    {
+      "grupo": "gp_positioningformation",
+      "instancia": "gp_positioningformation_defensivelinelengthwidth",
+      "offset_instancia": "0x30",
+      "campos": [
+        {"nombre": "LineLengthModifierForBalanced", "offset": "0x30", "tipo": "f32", "fc": 1.0, "pes": 0.72, "motivo": "Reduce la separacion entre lineas defensivas a ~31.5 m (evita el efecto chicle)"},
+        {"nombre": "LineLengthModifierForPossession", "offset": "0x50", "tipo": "f32", "fc": 1.0, "pes": 0.72, "motivo": "Consistencia de longitud de bloque en repliegue organizado"},
+        {"nombre": "LineLengthModifierForLongBall", "offset": "0x2c", "tipo": "f32", "fc": 1.0, "pes": 0.75, "motivo": "Bloque compacto ante transicion larga"},
+        {"nombre": "LineLengthModifierForFastBuildUp", "offset": "0x54", "tipo": "f32", "fc": 1.0, "pes": 0.75, "motivo": "Bloque compacto en repliegue rapido"},
+        {"nombre": "lineWidthModifier", "offset": "0x28", "tipo": "f32", "fc": 1.0, "pes": 0.88, "motivo": "Compactacion lateral de la linea defensiva general (Holland / PES)"},
+        {"nombre": "lineWidthModifierForCB", "offset": "0x3c", "tipo": "f32", "fc": 1.0, "pes": 0.85, "motivo": "Cierra distancia entre centrales (evita pasillos interiores frontales)"}
+      ]
+    },
+    {
+      "grupo": "gp_positioningformation",
+      "instancia": "gp_positioningformation_attackinglinelengthwidth",
+      "offset_instancia": "0x28",
+      "campos": [
+        {"nombre": "LineLengthModifierForBalanced", "offset": "0x30", "tipo": "f32", "fc": 0.84, "pes": 0.72, "motivo": "Aproxima lineas atacantes para soporte cercano al poseedor"},
+        {"nombre": "LineLengthModifierForPossession", "offset": "0x50", "tipo": "f32", "fc": 0.80, "pes": 0.70, "motivo": "Apoyo corto tipo juego de posicion PES"},
+        {"nombre": "lineWidthModifier", "offset": "0x28", "tipo": "f32", "fc": 1.0, "pes": 0.90, "motivo": "Compacta el frente ofensivo para paredes y apoyos interiores"}
+      ]
+    }
+  ]
+}

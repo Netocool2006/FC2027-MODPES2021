@@ -1,0 +1,106 @@
+{
+  "sistema": "balistica_fisica_balon",
+  "descripcion": "Calibracion fisica y balistica del balon (peso, friccion de cesped, resistencia al avance y bote estilo PES 2021)",
+  "archivos_fuente": [
+    "gp_physics_physics",
+    "gp_physics_soccerball"
+  ],
+  "parametros": [
+    {
+      "grupo": "gp_physics",
+      "instancia": "gp_physics_physics",
+      "grupo_offset": "0x130",
+      "instancia_offset": "0x58",
+      "campo": "FieldDynamicFriction",
+      "campo_offset": "0x3c",
+      "tipo": "f32",
+      "valor_fc": 0.72,
+      "valor_pes": 0.82,
+      "motivo": "Frenado organico del balon al rodar por el cesped, evitando que deslice sin friccion como en FC"
+    },
+    {
+      "grupo": "gp_physics",
+      "instancia": "gp_physics_physics",
+      "grupo_offset": "0x130",
+      "instancia_offset": "0x58",
+      "campo": "FieldStaticFriction",
+      "campo_offset": "0x68",
+      "tipo": "f32",
+      "valor_fc": 0.82,
+      "valor_pes": 0.90,
+      "motivo": "Mayor adherencia del cesped en balones parados y recepciones rasas"
+    },
+    {
+      "grupo": "gp_physics",
+      "instancia": "gp_physics_physics",
+      "grupo_offset": "0x130",
+      "instancia_offset": "0x58",
+      "campo": "BallBounceLinearDamping",
+      "campo_offset": "0x34",
+      "tipo": "f32",
+      "valor_fc": 0.998,
+      "valor_pes": 0.985,
+      "motivo": "Amortiguacion tras rebote; absorbe energia en botes verticales imitando el tacto de cuero de PES"
+    },
+    {
+      "grupo": "gp_physics",
+      "instancia": "gp_physics_physics",
+      "grupo_offset": "0x130",
+      "instancia_offset": "0x58",
+      "campo": "BallRestitution",
+      "campo_offset": "0x58",
+      "tipo": "f32",
+      "valor_fc": 0.90,
+      "valor_pes": 0.80,
+      "motivo": "Coeficiente de restitucion del balon; evita rebotes excesivos o efecto 'globo pinball'"
+    },
+    {
+      "grupo": "gp_physics",
+      "instancia": "gp_physics_physics",
+      "grupo_offset": "0x130",
+      "instancia_offset": "0x58",
+      "campo": "BallLinearDrag",
+      "campo_offset": "0x50",
+      "tipo": "f32",
+      "valor_fc": 0.003,
+      "valor_pes": 0.0045,
+      "motivo": "Resistencia aerodinamica al avance en disparos y pases largos por el aire"
+    },
+    {
+      "grupo": "gp_physics",
+      "instancia": "gp_physics_soccerball",
+      "grupo_offset": "0x130",
+      "instancia_offset": "0xb0",
+      "campo": "Soccerball_Mass",
+      "campo_offset": "0x50",
+      "tipo": "f32",
+      "valor_fc": 0.454,
+      "valor_pes": 0.470,
+      "motivo": "Masa fisica percibida del balon; le confiere el peso caracteristico y la inercia de PES"
+    },
+    {
+      "grupo": "gp_physics",
+      "instancia": "gp_physics_soccerball",
+      "grupo_offset": "0x130",
+      "instancia_offset": "0xb0",
+      "campo": "Soccerball_Inertia",
+      "campo_offset": "0x34",
+      "tipo": "f32",
+      "valor_fc": 0.66,
+      "valor_pes": 0.76,
+      "motivo": "Mayor inercia de rotacion y traslacion, simulando un cuerpo mas denso e independiente"
+    },
+    {
+      "grupo": "gp_physics",
+      "instancia": "gp_physics_soccerball",
+      "grupo_offset": "0x130",
+      "instancia_offset": "0xb0",
+      "campo": "Soccerball_GripConstant",
+      "campo_offset": "0x4c",
+      "tipo": "f32",
+      "valor_fc": 0.92,
+      "valor_pes": 0.85,
+      "motivo": "Reduce la adherencia artificial entre la bota y el balon permitiendo toques mas sueltos y organicos"
+    }
+  ]
+}

@@ -1,0 +1,570 @@
+{
+ "sistema": "porteros",
+ "fuente": "G:\\ProyFIFA\\equipo\\porteros\\TRADUCCION_FC.md",
+ "nota": "Perfil Holland. Constantes PES de porteros (player/gk, ballplayerGk, goalKick, penaltykick, freekick) = PES 1.00 en ambos perfiles (ningun mod las cambia); unica diferencia de perfil: cpuLevel Info[32] (Original 10,10,5,3,3,0,0; Holland GK2 = 2). La logica (posicion, parada, saques) va en pes_porteros*.c por los enganches de la lista \"enganches\".",
+ "cambios": [
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_mlgoalkeeper",
+   "campo": "GK_EnableMLGKFeature",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_mlgoalkeeper_runtime/GK_EnableMLGKFeature",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "lector 0x4a2fa80",
+   "confianza": "DEMOSTRADO (lectura en 0x4a2fa80) / PROBABLE (efecto)",
+   "motivo": "PES no tiene portero por red neuronal; sin ML el objetivo de posicion lo da pes_gk_despachador"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_mlgoalkeeper",
+   "campo": "GK_DisableRLGKFeatureOnGKPositioningAction",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_mlgoalkeeper_runtime/GK_DisableRLGKFeatureOnGKPositioningAction",
+   "actual": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    true,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "nuevo": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "lector 0x4a2fa80",
+   "confianza": "PROBABLE",
+   "motivo": "desactivar el RL en todas las acciones de posicionamiento (por si GK_EnableMLGKFeature no basta)"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_mlgoalkeeper",
+   "campo": "GK_DisableRLGKFeatureOnAutoRush",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_mlgoalkeeper_runtime/GK_DisableRLGKFeatureOnAutoRush",
+   "actual": false,
+   "nuevo": true,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "lector 0x4a2fa80",
+   "confianza": "PROBABLE",
+   "motivo": "idem para la salida automatica (PES decide la salida con 0x9e1760/0x9e2a80)"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectory",
+   "campo": "GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectory_runtime/GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectory",
+   "campo": "GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectory_runtime/GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectory",
+   "campo": "GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectory_runtime/GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectorybicycle",
+   "campo": "GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectorybicycle_runtime/GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectorybicycle",
+   "campo": "GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectorybicycle_runtime/GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectorybicycle",
+   "campo": "GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectorybicycle_runtime/GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectorychipshot",
+   "campo": "GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectorychipshot_runtime/GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": false,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectorychipshot",
+   "campo": "GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectorychipshot_runtime/GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": false,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectorychipshot",
+   "campo": "GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectorychipshot_runtime/GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "actual": false,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectoryfinesseshot",
+   "campo": "GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectoryfinesseshot_runtime/GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectoryfinesseshot",
+   "campo": "GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectoryfinesseshot_runtime/GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectoryfinesseshot",
+   "campo": "GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectoryfinesseshot_runtime/GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectoryfinesseshotlow",
+   "campo": "GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectoryfinesseshotlow_runtime/GKEnableFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectoryfinesseshotlow",
+   "campo": "GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectoryfinesseshotlow_runtime/GKEnableNonFirstTimeErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp_errortrajectoryfinesseshotlow",
+   "campo": "GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_errortrajectoryfinesseshotlow_runtime/GKEnableFirstTimeHeaderErrorOnPredictedOrPerceivedTraj",
+   "actual": true,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-1 (lector sin localizar)",
+   "confianza": "PROBABLE",
+   "motivo": "PES no desvia la trayectoria percibida: su fallo es la ventana de reaccion (0x7457e0) y el resultado de la parada (0x750b50); sumarlos duplicaria el error"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp",
+   "campo": "GKTicksForLaunchIndecision",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_runtime/GKTicksForLaunchIndecision",
+   "actual": [
+    [
+     0.0,
+     5.8947
+    ],
+    [
+     0.0856,
+     5.8947
+    ],
+    [
+     0.1856,
+     5.8947
+    ],
+    [
+     0.2856,
+     5.8947
+    ],
+    [
+     0.3856,
+     5.8947
+    ],
+    [
+     0.4856,
+     5.8947
+    ],
+    [
+     0.5856,
+     5.8947
+    ],
+    [
+     0.6856,
+     5.8947
+    ],
+    [
+     0.7856,
+     5.8947
+    ],
+    [
+     0.8856,
+     3.8947
+    ],
+    [
+     0.9836,
+     1.8947
+    ]
+   ],
+   "nuevo": [
+    [
+     0.0,
+     12.0
+    ],
+    [
+     0.39,
+     12.0
+    ],
+    [
+     0.4,
+     10.271
+    ],
+    [
+     0.5,
+     9.661
+    ],
+    [
+     0.6,
+     8.949
+    ],
+    [
+     0.7,
+     8.237
+    ],
+    [
+     0.8,
+     7.627
+    ],
+    [
+     0.9,
+     6.915
+    ],
+    [
+     0.99,
+     6.0
+    ],
+    [
+     1.0,
+     6.0
+    ]
+   ],
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA porteros-2 (lector y eje X sin medir)",
+   "confianza": "DEMOSTRADO (formula PES 0x7457e0, arnes_parada) / PROBABLE (equivalencia: X = atributo/100 de FC, Y = ticks de 60 Hz)",
+   "motivo": "ventana de reaccion PES = (2 - r)*0.1 s con r = rampa(Cobertura remapeada 40..90 -> 57..90; 40..99); 0.2 s peor, 0.1 s mejor; convertida a ticks de 60 Hz"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_gkpp",
+   "campo": "GKCatchVsDeflectCatchScore",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_gkpp_runtime/GKCatchVsDeflectCatchScore",
+   "actual": 0.6000000238418579,
+   "nuevo": "pes_gk_limite_catch + pes_gk_catch_retener (0x521fef0)",
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "b",
+   "getter": "0x521fef0",
+   "confianza": "PROBABLE",
+   "motivo": "familia de parada PES (blocaje si zona baja y balon >= 70 km/h, limites de giro de gk.o); ver TRADUCCION_FC §5"
+  },
+  {
+   "grupo": "gp_kickpass",
+   "instancia": "gp_kickpass_goalkeeper",
+   "campo": "PASS_Goalkeeper_Throw_Distance",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_kickpass/gp_kickpass_goalkeeper_runtime/PASS_Goalkeeper_Throw_Distance",
+   "actual": [
+    40.0,
+    45.0,
+    50.0
+   ],
+   "nuevo": "pes_gk_saque_decidir + pes_gk_sel_largo/raso/normal",
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "b",
+   "getter": "enganche de pase del portero (ENGANCHES 1.4, sin localizar)",
+   "confianza": "DEMOSTRADO (logica PES 0x2111db0/0x509f60/0x50a210/0x50a4a0, arnes_saque/arnes_sel) / PROBABLE (enganche)",
+   "motivo": "mano/pie y receptor por la decision PES: normal 5-30 m, largo 35-40 m (carta GK_LONG_THROW), despeje raso 30-50 m (carta LOW_PUNT)"
+  },
+  {
+   "grupo": "gp_kickpass",
+   "instancia": "gp_kickpass_goalkeeper",
+   "campo": "PASS_Goalkeeper_StandingThrow_Throw_Distance",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_kickpass/gp_kickpass_goalkeeper_runtime/PASS_Goalkeeper_StandingThrow_Throw_Distance",
+   "actual": [
+    35.0,
+    37.5,
+    40.0
+   ],
+   "nuevo": "pes_gk_saque_decidir + pes_gk_sel_largo/raso/normal",
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "b",
+   "getter": "enganche de pase del portero (ENGANCHES 1.4, sin localizar)",
+   "confianza": "DEMOSTRADO (logica PES 0x2111db0/0x509f60/0x50a210/0x50a4a0, arnes_saque/arnes_sel) / PROBABLE (enganche)",
+   "motivo": "mano/pie y receptor por la decision PES: normal 5-30 m, largo 35-40 m (carta GK_LONG_THROW), despeje raso 30-50 m (carta LOW_PUNT)"
+  },
+  {
+   "grupo": "gp_goalkeeper",
+   "instancia": "gp_goalkeeper_cpu_difficulty",
+   "campo": "GK_CPU_Difficulty_Additional_IndecisionTimePenalty",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_goalkeeper/gp_goalkeeper_cpu_difficulty_runtime/GK_CPU_Difficulty_Additional_IndecisionTimePenalty",
+   "actual": [
+    [
+     -0.001,
+     3.8496
+    ],
+    [
+     0.0,
+     15.0
+    ],
+    [
+     1.0,
+     10.0
+    ],
+    [
+     2.0,
+     0.0
+    ],
+    [
+     7.0,
+     0.0
+    ]
+   ],
+   "nuevo": [
+    [
+     0,
+     2.222
+    ],
+    [
+     1,
+     2.222
+    ],
+    [
+     2,
+     2.222
+    ],
+    [
+     3,
+     2.222
+    ],
+    [
+     4,
+     2.222
+    ],
+    [
+     5,
+     2.222
+    ],
+    [
+     6,
+     2.222
+    ],
+    [
+     7,
+     2.222
+    ]
+   ],
+   "perfiles": [
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "concentrador 0x4c3b4c0 -> 0x4cc5c30 (cpu_difficulty)",
+   "confianza": "DESCONOCIDO (consumidor PES protegido) / PROBABLE (escala en ticks: misma magnitud que la curva de FC 15,10,0)",
+   "motivo": "cpuLevel Info[32] por nivel de dificultad = Holland dt18 GK2 (2 en los 7 niveles); se interpreta como ticks de indecision del portero CPU (1/54 s -> 1/60 s). X = nivel de dificultad FC 0..7"
+  }
+ ],
+ "enganches": [
+  {
+   "va": "destino de locomocion del portero (sin localizar: fc_enganches)",
+   "que": "punto objetivo de la posicion base",
+   "forma": "b",
+   "c": "pes_gk_orquestador -> pes_gk_despachador (pes_gk_posicion_geom / _bandera / pes_gk_sp_*) -> pes_gk_filtro_objetivo; tipo de paso pes_gk_tipo_paso / pes_gk_sp_tipo_carrera"
+  },
+  {
+   "va": "inicio de la parada (sin localizar; lector de GKTicksForLaunchIndecision)",
+   "que": "ventana de reaccion y accion de parada",
+   "forma": "b",
+   "c": "pes_gk_parada_tick (0x7457e0) con pes_gk_ventana_reaccion"
+  },
+  {
+   "va": "0x521fef0",
+   "que": "blocar o desviar",
+   "forma": "b",
+   "c": "pes_gk_limite_* / pes_gk_catch_retener / pes_gk_catch_lado"
+  },
+  {
+   "va": "0x4ab8e30 (toques Catch 11, GkDeflect 10, GkPunch 22, Block 23)",
+   "que": "resultado de la parada",
+   "forma": "b",
+   "c": "pes_gk_resultado_parada (0x750b50)",
+   "falta": [
+    "en consola el atrape no paso por el enganche de toques: lo investiga fc_enganches"
+   ]
+  },
+  {
+   "va": "pase del portero con el balon en las manos (GkThrow 20 / GkKick 19 / GkDrop 21; sin localizar)",
+   "que": "mano/pie, largo/corto y receptor",
+   "forma": "b",
+   "c": "pes_gk_saque_decidir (0x2111db0) + pes_gk_sel_largo/raso/normal (0x509f60/0x50a210/0x50a4a0)",
+   "falta": [
+    "saque no visto en el enganche de toques"
+   ]
+  }
+ ]
+}

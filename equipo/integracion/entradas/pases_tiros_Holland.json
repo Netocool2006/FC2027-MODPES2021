@@ -1,0 +1,338 @@
+{
+ "perfil": "Holland",
+ "regla": "mod > PES; Holland > Alex",
+ "parametros": [
+  {
+   "parametro": "rasoDistGaugeMax",
+   "seccion": "player/grounderpass",
+   "desplazamiento": "0x58",
+   "valor": 40.0,
+   "origen": "PES",
+   "bits": "42200000"
+  },
+  {
+   "parametro": "rasoDistGaugeMin",
+   "seccion": "player/grounderpass",
+   "desplazamiento": "0x5c",
+   "valor": 4.0,
+   "origen": "PES",
+   "bits": "40800000"
+  },
+  {
+   "parametro": "rasoMezclaFuerte",
+   "seccion": "player/grounderpass",
+   "desplazamiento": "0x60",
+   "valor": [
+    1.0,
+    0.800000011920929,
+    0.800000011920929,
+    0.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "rasoMezclaDebil",
+   "seccion": "player/grounderpass",
+   "desplazamiento": "0x70",
+   "valor": [
+    1.0,
+    0.30000001192092896,
+    0.30000001192092896,
+    0.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "rasoMezclaHabilidad",
+   "seccion": "player/grounderpass",
+   "desplazamiento": "0x80",
+   "valor": -0.10000000149011612,
+   "origen": "PES",
+   "bits": "bdcccccd"
+  },
+  {
+   "parametro": "rasoMezclaUmbral",
+   "seccion": "player/grounderpass",
+   "desplazamiento": "0x84",
+   "valor": 20.0,
+   "origen": "PES",
+   "bits": "41a00000"
+  },
+  {
+   "parametro": "rasoNivelAsistencia",
+   "seccion": "player/grounderpass",
+   "desplazamiento": "0x90",
+   "valor": -1,
+   "origen": "PES"
+  },
+  {
+   "parametro": "altoDistGaugeMax",
+   "seccion": "player/flypass",
+   "desplazamiento": "0x5c",
+   "valor": 60.0,
+   "origen": "PES",
+   "bits": "42700000"
+  },
+  {
+   "parametro": "altoDistGaugeMin",
+   "seccion": "player/flypass",
+   "desplazamiento": "0x60",
+   "valor": 10.0,
+   "origen": "PES",
+   "bits": "41200000"
+  },
+  {
+   "parametro": "altoCurvaGauge",
+   "seccion": "player/flypass",
+   "desplazamiento": "0x64",
+   "valor": 0.30000001192092896,
+   "origen": "PES",
+   "bits": "3e99999a"
+  },
+  {
+   "parametro": "altoMezclaGaugeMax",
+   "seccion": "player/flypass",
+   "desplazamiento": "0x68",
+   "valor": [
+    1.0,
+    0.6000000238418579,
+    0.6000000238418579,
+    0.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "altoMezclaFuerte",
+   "seccion": "player/flypass",
+   "desplazamiento": "0x78",
+   "valor": [
+    1.0,
+    0.5,
+    0.5,
+    0.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "altoMezclaDebil",
+   "seccion": "player/flypass",
+   "desplazamiento": "0x88",
+   "valor": [
+    1.0,
+    0.4000000059604645,
+    0.4000000059604645,
+    0.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "altoMezclaHabilidad",
+   "seccion": "player/flypass",
+   "desplazamiento": "0x98",
+   "valor": -0.10000000149011612,
+   "origen": "PES",
+   "bits": "bdcccccd"
+  },
+  {
+   "parametro": "altoMezclaUmbral",
+   "seccion": "player/flypass",
+   "desplazamiento": "0x9c",
+   "valor": 30.0,
+   "origen": "PES",
+   "bits": "41f00000"
+  },
+  {
+   "parametro": "altoNivelAsistencia",
+   "seccion": "player/flypass",
+   "desplazamiento": "0xa0",
+   "valor": -1,
+   "origen": "PES"
+  },
+  {
+   "parametro": "tiroNormalMax",
+   "seccion": "player/shoot",
+   "desplazamiento": "0x84",
+   "valor": [
+    95.0,
+    100.0,
+    105.0,
+    115.0,
+    120.0,
+    120.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "tiroNormalMed",
+   "seccion": "player/shoot",
+   "desplazamiento": "0x9c",
+   "valor": [
+    70.0,
+    70.0,
+    80.0,
+    95.0,
+    115.0,
+    115.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "tiroNormalMin",
+   "seccion": "player/shoot",
+   "desplazamiento": "0xb4",
+   "valor": [
+    56.0,
+    56.0,
+    68.0,
+    82.0,
+    84.0,
+    90.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "tiroControlMax",
+   "seccion": "player/shoot",
+   "desplazamiento": "0x20",
+   "valor": [
+    80.0,
+    80.0,
+    82.0,
+    84.0,
+    90.0,
+    98.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "tiroControlMed",
+   "seccion": "player/shoot",
+   "desplazamiento": "0x38",
+   "valor": [
+    62.0,
+    64.0,
+    72.0,
+    79.0,
+    84.0,
+    90.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "tiroControlMin",
+   "seccion": "player/shoot",
+   "desplazamiento": "0x50",
+   "valor": [
+    45.0,
+    45.0,
+    62.0,
+    74.0,
+    78.0,
+    82.0
+   ],
+   "origen": "PES"
+  },
+  {
+   "parametro": "tiroDyNormalMax",
+   "seccion": "player/shoot",
+   "desplazamiento": "0xcc",
+   "valor": 28.0,
+   "origen": "PES",
+   "bits": "41e00000"
+  },
+  {
+   "parametro": "tiroDyNormalMin",
+   "seccion": "player/shoot",
+   "desplazamiento": "0xd0",
+   "valor": 3.0,
+   "origen": "PES",
+   "bits": "40400000"
+  },
+  {
+   "parametro": "tiroDyNormalCurva",
+   "seccion": "player/shoot",
+   "desplazamiento": "0xd4",
+   "valor": 0.5,
+   "origen": "PES",
+   "bits": "3f000000"
+  },
+  {
+   "parametro": "tiroDyControlMin",
+   "seccion": "player/shoot",
+   "desplazamiento": "0x6c",
+   "valor": 3.0,
+   "origen": "PES",
+   "bits": "40400000"
+  },
+  {
+   "parametro": "tiroDyControlCurva",
+   "seccion": "player/shoot",
+   "desplazamiento": "0x70",
+   "valor": 0.5,
+   "origen": "PES",
+   "bits": "3f000000"
+  },
+  {
+   "parametro": "tiroK07",
+   "seccion": "exe",
+   "desplazamiento": "0x25a967c",
+   "valor": -0.7000000476837158,
+   "origen": "Alex",
+   "bits": "bf333334"
+  },
+  {
+   "parametro": "naturalRoll",
+   "seccion": "match/ball",
+   "desplazamiento": "0x240",
+   "valor": 2.0,
+   "origen": "PES",
+   "bits": "40000000"
+  },
+  {
+   "parametro": "debugKickSpeed",
+   "seccion": "match/ball",
+   "desplazamiento": "0x144",
+   "valor": 35.0,
+   "origen": "PES",
+   "bits": "420c0000"
+  },
+  {
+   "parametro": "debugKickAngle",
+   "seccion": "match/ball",
+   "desplazamiento": "0x140",
+   "valor": 3.0,
+   "origen": "PES",
+   "bits": "40400000"
+  },
+  {
+   "parametro": "roll",
+   "seccion": "match/ball",
+   "desplazamiento": "0x28c",
+   "valor": -2.0,
+   "origen": "PES",
+   "bits": "c0000000"
+  },
+  {
+   "parametro": "curve",
+   "seccion": "match/ball",
+   "desplazamiento": "0x13c",
+   "valor": 0.0,
+   "origen": "PES",
+   "bits": "00000000"
+  },
+  {
+   "parametro": "speedCustom",
+   "seccion": "match/ball",
+   "desplazamiento": "0x2d9",
+   "valor": 0,
+   "origen": "PES"
+  },
+  {
+   "parametro": "rotationCustom",
+   "seccion": "match/ball",
+   "desplazamiento": "0x2d8",
+   "valor": 0,
+   "origen": "PES"
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "sistema": "movimiento (locomocion: velocidad de sprint, aceleracion, cansancio, factores de atributos)",
+ "fuente": "G:\\ProyFIFA\\equipo\\movimiento\\ENGANCHES_MOVIMIENTO.md",
+ "codigo": "G:\\ProyFIFA\\equipo\\movimiento\\consola\\pes_movimiento_consola.c",
+ "depende_de": [
+  "G:\\ProyFIFA\\equipo\\movimiento\\pes_movimiento.c (+ pes_movimiento_gen.c), ya en C10",
+  "G:\\ProyFIFA\\equipo\\integracion\\entradas\\jugador_fc.c (jugador_fc; y jugador_fc_fijar_balon(rdi) al entrar en pes_toque_inicio para el tramo de aceleracion por velocidad actual; sin el, se usa la media 0->100 %)"
+ ],
+ "include": ["G:\\ProyFIFA\\equipo\\integracion\\comun", "G:\\ProyFIFA\\equipo\\movimiento"],
+ "control": "g_pes.activos bit0 Y g_pes.modo != 0; sub-bits en g_mov.activos (marca 'PESMOV v1'; por defecto 1 = solo M1). g_mov.sombra = 1: calcula sin escribir (anillo g_mov.ultimo[8]). Con el bit a 0: salida neutra (llama al original y devuelve/deja lo de FC).",
+ "confianza": "Puntos y campos DEMOSTRADOS por desensamblado (llamadas directas, sin Rela); LOCO+0x68 = cansancio corto PROBABLE (entrada de la curva ShortTermFatigueReduction); SIN MEDIR en consola (medir_mov.py m8)",
+ "enganches": [
+  {"id": "M1a", "va": "0x4cad652", "original": "e869040000", "forma": "rel32", "destino": "pes_mov_actualizar_loco", "bit": 0,
+   "que": "llamada a 0x4cadac0 (actualizacion de locomocion del jugador, rdi = LOCO; escribe LOCO+0xcb4/+0xcb8 vmax y +0xcbc aceleracion)"},
+  {"id": "M1b", "va": "0x4cafe11", "original": "e8aadcffff", "forma": "rel32", "destino": "pes_mov_actualizar_loco", "bit": 0,
+   "que": "segunda llamada a 0x4cadac0 (la de cada actualizacion; la anterior es la de reinicio)"},
+  {"id": "M2a", "va": "0x4a4bd03", "original": "e878512600", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0},
+  {"id": "M2b", "va": "0x4a4bd10", "original": "e86b512600", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0},
+  {"id": "M2c", "va": "0x4a4ca9b", "original": "e8e0432600", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0},
+  {"id": "M2d", "va": "0x4a4d136", "original": "e8453d2600", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0},
+  {"id": "M2e", "va": "0x4a4dd7a", "original": "e801312600", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0},
+  {"id": "M2f", "va": "0x4a4f044", "original": "e8371e2600", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0},
+  {"id": "M2g", "va": "0x4a4f054", "original": "e8271e2600", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0},
+  {"id": "M2h", "va": "0x4a5a68b", "original": "e8f0672500", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0},
+  {"id": "M2i", "va": "0x4a5c4bf", "original": "e8bc492500", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0},
+  {"id": "M2j", "va": "0x4a5c9a4", "original": "e8d7442500", "forma": "rel32", "destino": "pes_mov_getter_acel", "bit": 0}
+ ],
+ "simbolos": {
+  "fc_loco_actualizar": "0x4cadac0",
+  "fc_getter_acel": "0x4cb0e80",
+  "fc_vel_sprint": "0x4cb09c0",
+  "fc_normalizar_acel": "0x4a4bcb0"
+ },
+ "no_enganchados": {
+  "0x4cb09c0": "getter ATTR_SprintSpeed: no recibe el jugador (xmm0 = t, dl = tabla de cansancio); 2 llamadas dentro de 0x4cadac0. Se usa como funcion pura para la base de velocidad.",
+  "0x4cb0c20": "getter de la aceleracion guardada (normaliza LOCO+0xcbc, 48 llamadas): no hace falta; lee lo que escribe M1."
+ },
+ "alternativas_prologo": {
+  "0x4cadac0": "554889e54157415641554154534883ec78 (17 B: push rbp/mov rbp,rsp/5 push/sub rsp,0x78; el 18.o es mov rip-relativo)",
+  "0x4cb0e80": "554889e54156534883ec10 (11 B; el 12.o es mov rip-relativo)",
+  "nota": "no hacen falta: todas las referencias son llamadas directas (rel32)"
+ },
+ "valores_pes": "ENGANCHES_MOVIMIENTO.md §3 (tabla por atributos)"
+}

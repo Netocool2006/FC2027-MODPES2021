@@ -1,0 +1,57 @@
+{
+  "sistema": "primer_toque_control_inercia",
+  "descripcion": "Calibracion del primer toque, amortiguacion y recepciones estilo PES 2021 (elimina el 'pegamento' magico inmediato y da inercia al giro)",
+  "archivos_fuente": [
+    "gp_actor_movement"
+  ],
+  "parametros": [
+    {
+      "grupo": "gp_actor",
+      "instancia": "gp_actor_movement",
+      "grupo_offset": "0x48",
+      "instancia_offset": "0x18",
+      "campo": "TrappingControlledFirstTouchBallTargetTimeShort",
+      "campo_offset": "0x250",
+      "tipo": "f32",
+      "valor_fc": 65.0,
+      "valor_pes": 75.0,
+      "motivo": "Aumenta la ventana de ejecucion del primer toque corto para que el jugador amortigue con el cuerpo de forma organica"
+    },
+    {
+      "grupo": "gp_actor",
+      "instancia": "gp_actor_movement",
+      "grupo_offset": "0x48",
+      "instancia_offset": "0x18",
+      "campo": "TrappingControlledFirstTouchBallTargetTimeLong",
+      "campo_offset": "0x3d4",
+      "tipo": "f32",
+      "valor_fc": 110.0,
+      "valor_pes": 125.0,
+      "motivo": "Controles de balones largos requieren mas tiempo de orientacion y no quedan clavados al pie instantaneamente"
+    },
+    {
+      "grupo": "gp_actor",
+      "instancia": "gp_actor_movement",
+      "grupo_offset": "0x48",
+      "instancia_offset": "0x18",
+      "campo": "ATTR_DribbleMinTouchInterruptPenalty",
+      "campo_offset": "0x20c",
+      "tipo": "f32",
+      "valor_fc": 2.0,
+      "valor_pes": 3.0,
+      "motivo": "Mayor penalizacion por interrumpir bruscamente el paso/toque de conduccion, obligando a respetar la inercia del cuerpo"
+    },
+    {
+      "grupo": "gp_actor",
+      "instancia": "gp_actor_movement",
+      "grupo_offset": "0x48",
+      "instancia_offset": "0x18",
+      "campo": "DribbleControlledSprintBallTargetTimeRunTouch",
+      "campo_offset": "0x214",
+      "tipo": "f32",
+      "valor_fc": 45.0,
+      "valor_pes": 52.0,
+      "motivo": "En carrera el toque se alarga ligeramente, facilitando que el defensor pueda meter el cuerpo o anticipar como en PES"
+    }
+  ]
+}

@@ -1,0 +1,931 @@
+{
+ "sistema": "entradas",
+ "fuente": "G:\\ProyFIFA\\equipo\\entradas\\TRADUCCION_FC.md",
+ "nota": "Valores por perfil. Los parámetros PES salen de tackle.o/sliding.o (perfil Original = 1.00; Holland = FOULS). La lógica PES de entrada (clase de velocidad, variante, ajuste de clip, segada permitida) va en código (pes_entradas.c) si se engancha la decisión de FC; faltas/árbitro: FC sin cambios (la decisión de falta de PES no es legible: código protegido). Coordinado con movimiento (TRADUCCION_FC §6): este JSON sustituye su tabla §6 para estos 4 campos.",
+ "segada_animeEnterSpeed": {
+  "PES2021_Original": 14.0,
+  "PES2021_Holland": 5.0
+ },
+ "cambios": [
+  {
+   "campo": "Tackle_AutoTackle_Reach",
+   "perfil": "PES2021_Original",
+   "nuevo": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 4.9213,
+      "InTangentOffsetX": 0.0,
+      "OutTangentOffsetX": 0.0
+     },
+     {
+      "CurveType": 2,
+      "X": 0.6061,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 4.9213,
+      "InTangentOffsetX": 0.0,
+      "OutTangentOffsetX": 0.0
+     },
+     {
+      "CurveType": 2,
+      "X": 0.665,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.5617,
+      "InTangentOffsetX": 0.0,
+      "OutTangentOffsetX": 0.0
+     },
+     {
+      "CurveType": 2,
+      "X": 1.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.5617,
+      "InTangentOffsetX": 0.0,
+      "OutTangentOffsetX": 0.0
+     }
+    ]
+   },
+   "forma": "a",
+   "confianza": "PROBABLE",
+   "motivo": "PES 0x78a640: fallo si distancia > 1.5 + 3·t m o > 2 m; t por Agresividad (0x1f, 60..95) del que entra; FC X = atributo/99 (PETICION entradas-E2)",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_tackling_runtime/Tackle_AutoTackle_Reach",
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_tackling",
+   "actual": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 3.0,
+      "InTangentOffsetX": -0.09999999403953552,
+      "OutTangentOffsetX": 0.10000002384185791
+     },
+     {
+      "CurveType": 2,
+      "X": 1.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 4.0,
+      "InTangentOffsetX": -0.10000002384185791,
+      "OutTangentOffsetX": 0.10000002384185791
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   }
+  },
+  {
+   "campo": "Tackle_BallOut_Stand_MaxAngle",
+   "perfil": "PES2021_Original",
+   "nuevo": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.30000001192092896,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 135.0,
+      "InTangentOffsetX": -0.07255136966705322,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.5,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 135.0,
+      "InTangentOffsetX": -0.000899970531463623,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.699999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 135.0,
+      "InTangentOffsetX": -0.000899970531463623,
+      "OutTangentOffsetX": 0.09040099382400513
+     },
+     {
+      "CurveType": 2,
+      "X": 0.800000011920929,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 135.0,
+      "InTangentOffsetX": -0.09040099382400513,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8500000238418579,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 135.0,
+      "InTangentOffsetX": -0.03086233139038086,
+      "OutTangentOffsetX": 0.04738950729370117
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8999999761581421,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 135.0,
+      "InTangentOffsetX": -0.04738950729370117,
+      "OutTangentOffsetX": 0.04989999532699585
+     },
+     {
+      "CurveType": 2,
+      "X": 0.949999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 135.0,
+      "InTangentOffsetX": -0.04989999532699585,
+      "OutTangentOffsetX": 0.039900004863739014
+     },
+     {
+      "CurveType": 2,
+      "X": 0.9900000095367432,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 135.0,
+      "InTangentOffsetX": -0.039900004863739014,
+      "OutTangentOffsetX": 0.10000002384185791
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   },
+   "forma": "a",
+   "confianza": "PROBABLE",
+   "motivo": "pressTackleEnableAngleIdle = 135.0 (parado; en carrera 105.0)",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_tackling_runtime/Tackle_BallOut_Stand_MaxAngle",
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_tackling",
+   "actual": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.30000001192092896,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 120.0,
+      "InTangentOffsetX": -0.07255136966705322,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.5,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 150.0,
+      "InTangentOffsetX": -0.000899970531463623,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.699999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 180.0,
+      "InTangentOffsetX": -0.000899970531463623,
+      "OutTangentOffsetX": 0.09040099382400513
+     },
+     {
+      "CurveType": 2,
+      "X": 0.800000011920929,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 220.0,
+      "InTangentOffsetX": -0.09040099382400513,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8500000238418579,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 240.0,
+      "InTangentOffsetX": -0.03086233139038086,
+      "OutTangentOffsetX": 0.04738950729370117
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8999999761581421,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 260.0,
+      "InTangentOffsetX": -0.04738950729370117,
+      "OutTangentOffsetX": 0.04989999532699585
+     },
+     {
+      "CurveType": 2,
+      "X": 0.949999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 280.0,
+      "InTangentOffsetX": -0.04989999532699585,
+      "OutTangentOffsetX": 0.039900004863739014
+     },
+     {
+      "CurveType": 2,
+      "X": 0.9900000095367432,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 300.0,
+      "InTangentOffsetX": -0.039900004863739014,
+      "OutTangentOffsetX": 0.10000002384185791
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   }
+  },
+  {
+   "campo": "Tackle_StandLaunchEffortTicks",
+   "perfil": "PES2021_Original",
+   "nuevo": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 0.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.20000000298023224,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 0.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.30000001192092896,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 1.9048,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.4000000059604645,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 3.8095,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.5,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 5.7143,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.6000000238418579,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 5.7143,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.699999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 7.619,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.800000011920929,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 9.5238,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8999999761581421,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 9.5238,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 1.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 9.5238,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   },
+   "forma": "a (aproximado)",
+   "confianza": "PROBABLE",
+   "motivo": "ritmo medio de la animación de entrada PES 1.050 (playbackSpeedLowest..Highest)",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_tackling_runtime/Tackle_StandLaunchEffortTicks",
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_tackling",
+   "actual": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 0.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.20000000298023224,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 0.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.30000001192092896,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 2.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.4000000059604645,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 4.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.5,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.6000000238418579,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.699999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 8.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.800000011920929,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 10.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8999999761581421,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 10.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 1.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 10.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   }
+  },
+  {
+   "campo": "Tackle_AutoTackle_PossessionDisabledTicks",
+   "perfil": "PES2021_Original",
+   "nuevo": 30.0,
+   "forma": "a",
+   "confianza": "PROBABLE",
+   "motivo": "failAfterStopTime (s) × 60 ticks",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_tackling_runtime/Tackle_AutoTackle_PossessionDisabledTicks",
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_tackling",
+   "actual": 30.0
+  },
+  {
+   "campo": "Tackle_AutoTackle_Reach",
+   "perfil": "PES2021_Holland",
+   "nuevo": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 4.9213,
+      "InTangentOffsetX": 0.0,
+      "OutTangentOffsetX": 0.0
+     },
+     {
+      "CurveType": 2,
+      "X": 0.6061,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 4.9213,
+      "InTangentOffsetX": 0.0,
+      "OutTangentOffsetX": 0.0
+     },
+     {
+      "CurveType": 2,
+      "X": 0.665,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.5617,
+      "InTangentOffsetX": 0.0,
+      "OutTangentOffsetX": 0.0
+     },
+     {
+      "CurveType": 2,
+      "X": 1.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.5617,
+      "InTangentOffsetX": 0.0,
+      "OutTangentOffsetX": 0.0
+     }
+    ]
+   },
+   "forma": "a",
+   "confianza": "PROBABLE",
+   "motivo": "PES 0x78a640: fallo si distancia > 1.5 + 3·t m o > 2 m; t por Agresividad (0x1f, 60..95) del que entra; FC X = atributo/99 (PETICION entradas-E2)",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_tackling_runtime/Tackle_AutoTackle_Reach",
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_tackling",
+   "actual": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 3.0,
+      "InTangentOffsetX": -0.09999999403953552,
+      "OutTangentOffsetX": 0.10000002384185791
+     },
+     {
+      "CurveType": 2,
+      "X": 1.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 4.0,
+      "InTangentOffsetX": -0.10000002384185791,
+      "OutTangentOffsetX": 0.10000002384185791
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   }
+  },
+  {
+   "campo": "Tackle_BallOut_Stand_MaxAngle",
+   "perfil": "PES2021_Holland",
+   "nuevo": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.30000001192092896,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 360.0,
+      "InTangentOffsetX": -0.07255136966705322,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.5,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 360.0,
+      "InTangentOffsetX": -0.000899970531463623,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.699999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 360.0,
+      "InTangentOffsetX": -0.000899970531463623,
+      "OutTangentOffsetX": 0.09040099382400513
+     },
+     {
+      "CurveType": 2,
+      "X": 0.800000011920929,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 360.0,
+      "InTangentOffsetX": -0.09040099382400513,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8500000238418579,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 360.0,
+      "InTangentOffsetX": -0.03086233139038086,
+      "OutTangentOffsetX": 0.04738950729370117
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8999999761581421,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 360.0,
+      "InTangentOffsetX": -0.04738950729370117,
+      "OutTangentOffsetX": 0.04989999532699585
+     },
+     {
+      "CurveType": 2,
+      "X": 0.949999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 360.0,
+      "InTangentOffsetX": -0.04989999532699585,
+      "OutTangentOffsetX": 0.039900004863739014
+     },
+     {
+      "CurveType": 2,
+      "X": 0.9900000095367432,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 360.0,
+      "InTangentOffsetX": -0.039900004863739014,
+      "OutTangentOffsetX": 0.10000002384185791
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   },
+   "forma": "a",
+   "confianza": "PROBABLE",
+   "motivo": "pressTackleEnableAngleIdle = 360.0 (parado; en carrera 360.0)",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_tackling_runtime/Tackle_BallOut_Stand_MaxAngle",
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_tackling",
+   "actual": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.30000001192092896,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 120.0,
+      "InTangentOffsetX": -0.07255136966705322,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.5,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 150.0,
+      "InTangentOffsetX": -0.000899970531463623,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.699999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 180.0,
+      "InTangentOffsetX": -0.000899970531463623,
+      "OutTangentOffsetX": 0.09040099382400513
+     },
+     {
+      "CurveType": 2,
+      "X": 0.800000011920929,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 220.0,
+      "InTangentOffsetX": -0.09040099382400513,
+      "OutTangentOffsetX": 0.000899970531463623
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8500000238418579,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 240.0,
+      "InTangentOffsetX": -0.03086233139038086,
+      "OutTangentOffsetX": 0.04738950729370117
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8999999761581421,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 260.0,
+      "InTangentOffsetX": -0.04738950729370117,
+      "OutTangentOffsetX": 0.04989999532699585
+     },
+     {
+      "CurveType": 2,
+      "X": 0.949999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 280.0,
+      "InTangentOffsetX": -0.04989999532699585,
+      "OutTangentOffsetX": 0.039900004863739014
+     },
+     {
+      "CurveType": 2,
+      "X": 0.9900000095367432,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 300.0,
+      "InTangentOffsetX": -0.039900004863739014,
+      "OutTangentOffsetX": 0.10000002384185791
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   }
+  },
+  {
+   "campo": "Tackle_StandLaunchEffortTicks",
+   "perfil": "PES2021_Holland",
+   "nuevo": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 0.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.20000000298023224,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 0.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.30000001192092896,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 2.2857,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.4000000059604645,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 4.5714,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.5,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.8571,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.6000000238418579,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.8571,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.699999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 9.1429,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.800000011920929,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 11.4286,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8999999761581421,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 11.4286,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 1.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 11.4286,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   },
+   "forma": "a (aproximado)",
+   "confianza": "PROBABLE",
+   "motivo": "ritmo medio de la animación de entrada PES 0.875 (playbackSpeedLowest..Highest)",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_tackling_runtime/Tackle_StandLaunchEffortTicks",
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_tackling",
+   "actual": {
+    "_tipo": "FloatCurve",
+    "Points": [
+     {
+      "CurveType": 2,
+      "X": 0.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 0.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.20000000298023224,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 0.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.30000001192092896,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 2.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.4000000059604645,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 4.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.5,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.6000000238418579,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 6.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.699999988079071,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 8.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.800000011920929,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 10.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 0.8999999761581421,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 10.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     },
+     {
+      "CurveType": 2,
+      "X": 1.0,
+      "OutTangentOffsetY": 0.0,
+      "InTangentOffsetY": 0.0,
+      "Y": 10.0,
+      "InTangentOffsetX": -0.10000000149011612,
+      "OutTangentOffsetX": 0.10000000149011612
+     }
+    ],
+    "MaxX": 1.0,
+    "MinX": 0.0
+   }
+  },
+  {
+   "campo": "Tackle_AutoTackle_PossessionDisabledTicks",
+   "perfil": "PES2021_Holland",
+   "nuevo": 30.0,
+   "forma": "a",
+   "confianza": "PROBABLE",
+   "motivo": "failAfterStopTime (s) × 60 ticks",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_tackling_runtime/Tackle_AutoTackle_PossessionDisabledTicks",
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_tackling",
+   "actual": 30.0
+  }
+ ]
+}

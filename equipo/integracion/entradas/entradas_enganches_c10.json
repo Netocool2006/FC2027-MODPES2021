@@ -1,0 +1,63 @@
+{
+ "sistema": "entradas (entrada de pie y segada: decision PES de lanzarlas)",
+ "fuente": "G:\\ProyFIFA\\equipo\\entradas\\ENGANCHES_ENTRADAS.md",
+ "codigo": "G:\\ProyFIFA\\equipo\\entradas\\consola\\pes_entradas_consola.c",
+ "depende_de": [
+  "G:\\ProyFIFA\\equipo\\entradas\\pes_entradas.c (+ pes_seno_tabla.h)",
+  "G:\\ProyFIFA\\equipo\\primer_toque\\pes_primer_toque.c (pes_pt_rumbo)",
+  "tablas resueltas PES_R_tackle / PES_R_sliding (integracion\\consola\\pes_param_resuelto.h)",
+  "pes_entradas_fijar_balon(rdi) al entrar en pes_toque_inicio (como porteros: guarda el BallEntity para la lista de jugadores)"
+ ],
+ "include": [
+  "G:\\ProyFIFA\\equipo\\entradas",
+  "G:\\ProyFIFA\\equipo\\movimiento",
+  "G:\\ProyFIFA\\equipo\\primer_toque",
+  "G:\\ProyFIFA\\equipo\\integracion\\comun",
+  "G:\\ProyFIFA\\equipo\\integracion\\consola"
+ ],
+ "control": "g_pes.modo != 0, perfil cargado y PES_BIT_ENTRADAS de g_pes.activos (propuesto bit 5 = 0x20; definir -DPES_BIT_ENTRADAS=... si el integrador elige otro). Sub-bits en g_entradas.activos (marca 'PESENTRADAS v1'): bit0 segada PES, bit1 alcance PES entrada de pie, bit31 sombra. Por defecto 0 = neutro (cuenta, observa y llama al original).",
+ "confianza": "vtables, Execute y Relas DEMOSTRADOS (una sola referencia cada uno); objetivo cmd+0x1a0 (segada) PROBABLE alto, cmd+0x1d0 (pie) PROBABLE; SIN MEDIR (medir_entradas.py)",
+ "enganches": [
+  {
+   "id": "T1",
+   "forma": "rela",
+   "ranura": "0x109ecd28",
+   "original": "0x4c64170",
+   "destino": "pes_en_entrada_pie_entrada",
+   "bit": "1 (+31 sombra)",
+   "que": "AiPlayerStandTackle::Execute (vtable 0x109ecce0, ranura 9)"
+  },
+  {
+   "id": "T2",
+   "forma": "rela",
+   "ranura": "0x109eccc0",
+   "original": "0x4c63700",
+   "destino": "pes_en_segada_entrada",
+   "bit": "0 (+31 sombra)",
+   "que": "AiPlayerSlideTackle::Execute (vtable 0x109ecc78, ranura 9)"
+  },
+  {
+   "id": "T3",
+   "forma": "rela",
+   "ranura": "0x109ecc58",
+   "original": "0x4c63390",
+   "destino": "pes_en_carga_hombro_entrada",
+   "bit": "31 (solo observacion)",
+   "opcional": true,
+   "que": "AiPlayerSoulderCharge::Execute (vtable 0x109ecc10, ranura 9)"
+  }
+ ],
+ "simbolos": {
+  "fc_entrada_pie": "0x4c64170",
+  "fc_segada": "0x4c63700",
+  "fc_carga_hombro": "0x4c63390"
+ },
+ "alternativas_prologo": {
+  "0x4c64170": "554889e54157415641554154534881ec98070000",
+  "0x4c63700": "554889e54157415641554154534881ec28050000",
+  "nota": "no hacen falta: enganche por Rela"
+ },
+ "prueba_pc": "G:\\ProyFIFA\\equipo\\entradas\\consola\\prueba_consola_pc.txt (TODO OK)",
+ "medicion": "G:\\ProyFIFA\\equipo\\entradas\\medir_entradas.py pie|segada|hombro|todos (solo lectura)",
+ "valores": "G:\\ProyFIFA\\equipo\\integracion\\entradas\\entradas_valores_fc.json (attribulator, ya entregado)"
+}

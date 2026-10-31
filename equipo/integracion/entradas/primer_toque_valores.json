@@ -1,0 +1,1662 @@
+{
+ "sistema": "primer_toque",
+ "fuente": "G:\\ProyFIFA\\equipo\\primer_toque\\ESPECIFICACION.md (§0, §9) y TRADUCCION_FC.md",
+ "nota": "trap.o y passget.o son IDENTICOS en PES2021_Original y PES2021_Holland (mod_out\\pesmode\\parametros, comparados campo a campo tras la copia original de PES): ningun mod (Holland ni Alex) cambia trap ni passget. La constante de exe que cambia Alex/Holland (0x25a2000 17.5->4.375) no la lee ninguna funcion portada aqui (su uso cercano 0x7fe2b9 esta en la seleccion de animacion de control de PES, no portada). Carga en el bloque: pes_pt_cargar_o / pes_pg_cargar_o (pes_trap_o.c) con pes_param_o(perfil, \"player/trap\"|\"player/passget\"); validado contra la copia original (arnes_cargador_o.py, 0 diferencias).",
+ "secciones": {
+  "player/trap": {
+   "id_constget": 62,
+   "tam_o": 1008,
+   "tam_memoria": 472
+  },
+  "player/passget": {
+   "id_constget": 53,
+   "tam_o": 240,
+   "tam_memoria": 160
+  }
+ },
+ "parches_exe_usados": [],
+ "perfiles": {
+  "PES2021_Original": {
+   "trap": {
+    "afterCollision.hitAfterFrame": {
+     "off_mem": "0x008",
+     "valor": 10,
+     "origen": "PES"
+    },
+    "afterCollision.noHit.foot": {
+     "off_mem": "0x00c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "afterCollision.noHit.reg": {
+     "off_mem": "0x00d",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "afterCollision.noHit.thigh": {
+     "off_mem": "0x00e",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "animeBlend.changeAnimeBlendRate": {
+     "off_mem": "0x010",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "animeBlend.defaultBlendRate": {
+     "off_mem": "0x014",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "animeBlend.use": {
+     "off_mem": "0x018",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "animeCancelFrame.hitFrameBase": {
+     "off_mem": "0x01c",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "animeCancelFrame.kickAddTime": {
+     "off_mem": "0x020",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "animeCancelFrame.otherAddTime": {
+     "off_mem": "0x024",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "animeCancelFrame.use": {
+     "off_mem": "0x028",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "autoR2.checkEnemyFutureFrame": {
+     "off_mem": "0x02c",
+     "valor": 0.33,
+     "origen": "PES"
+    },
+    "autoR2.checkSectorDist": {
+     "off_mem": "0x030",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "autoR2.checkSectorWidth": {
+     "off_mem": "0x034",
+     "valor": 100.0,
+     "origen": "PES"
+    },
+    "ballControlRate": {
+     "off_mem": "0x038",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballControlWeekFootDownLimit": {
+     "off_mem": "0x03c",
+     "valor": 20.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartAfterFrame": {
+     "off_mem": "0x040",
+     "valor": 20,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Dash_Dash": {
+     "off_mem": "0x044",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Dash_Idle": {
+     "off_mem": "0x048",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Dash_Run": {
+     "off_mem": "0x04c",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Idle_Dash": {
+     "off_mem": "0x050",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Idle_Idle": {
+     "off_mem": "0x054",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Idle_Run": {
+     "off_mem": "0x058",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Run_Idle": {
+     "off_mem": "0x05c",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Run_Run": {
+     "off_mem": "0x060",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Run_dash": {
+     "off_mem": "0x064",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.burst": {
+     "off_mem": "0x068",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.dashOfRun": {
+     "off_mem": "0x06c",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.speed_0": {
+     "off_mem": "0x070",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.speed_15": {
+     "off_mem": "0x074",
+     "valor": 1.75,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.speed_28": {
+     "off_mem": "0x078",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.use": {
+     "off_mem": "0x07c",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "ballForceDirect.burstSetting.max": {
+     "off_mem": "0x080",
+     "valor": 3.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.burstSetting.min": {
+     "off_mem": "0x084",
+     "valor": 3.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.burstSetting.ratio": {
+     "off_mem": "0x088",
+     "valor": 1.2,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Dash_Dash": {
+     "off_mem": "0x08c",
+     "valor": 2.75,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Dash_Idle": {
+     "off_mem": "0x090",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Dash_Run": {
+     "off_mem": "0x094",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Idle_Dash": {
+     "off_mem": "0x098",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Idle_Idle": {
+     "off_mem": "0x09c",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Idle_Run": {
+     "off_mem": "0x0a0",
+     "valor": 0.75,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Run_Idle": {
+     "off_mem": "0x0a4",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Run_Run": {
+     "off_mem": "0x0a8",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Run_dash": {
+     "off_mem": "0x0ac",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrameOffsetPos": {
+     "off_mem": "0x0b0",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "ballForceDirect.kickBasis.offsetPos_Dash": {
+     "off_mem": "0x0b4",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.kickBasis.offsetPos_Idle": {
+     "off_mem": "0x0b8",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.kickBasis.offsetPos_Run": {
+     "off_mem": "0x0bc",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.rateCollisionSpin": {
+     "off_mem": "0x0c0",
+     "valor": 0.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.runDashSetting.max": {
+     "off_mem": "0x0c4",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.runDashSetting.min": {
+     "off_mem": "0x0c8",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.runDashSetting.ratio": {
+     "off_mem": "0x0cc",
+     "valor": 1.2,
+     "origen": "PES"
+    },
+    "ballForceDirect.use": {
+     "off_mem": "0x0d0",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballInAngle.angleOpen": {
+     "off_mem": "0x0d4",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballInAngle.use": {
+     "off_mem": "0x0d5",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "busyTrapControl.busyTime": {
+     "off_mem": "0x0d8",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "busyTrapControl.checkMyBallPass": {
+     "off_mem": "0x0dc",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "busyTrapControl.runTrapStopTurnAngle": {
+     "off_mem": "0x0e0",
+     "valor": 90.0,
+     "origen": "PES"
+    },
+    "busyTrapControl.stopTrapStopTurnAngle": {
+     "off_mem": "0x0e4",
+     "valor": -1.0,
+     "origen": "PES"
+    },
+    "busyTrapControl.use": {
+     "off_mem": "0x0e8",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "cancel.hitBefore.jumpStartFrame": {
+     "off_mem": "0x0ec",
+     "valor": 6,
+     "origen": "PES"
+    },
+    "defenseTrap.checkBallHeight": {
+     "off_mem": "0x0f0",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "defenseTrap.checkBallLimitRange": {
+     "off_mem": "0x0f4",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "defenseTrap.checkBallMoveVecY": {
+     "off_mem": "0x0f8",
+     "valor": 10.0,
+     "origen": "PES"
+    },
+    "defenseTrap.checkDistKeepPlayerToBall": {
+     "off_mem": "0x0fc",
+     "valor": 1.75,
+     "origen": "PES"
+    },
+    "defenseTrap.custom.angleOut": {
+     "off_mem": "0x100",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "defenseTrap.custom.speedOut": {
+     "off_mem": "0x104",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "defenseTrap.custom.use": {
+     "off_mem": "0x108",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "defenseTrap.use": {
+     "off_mem": "0x10c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "hitAfterCancel.frameRange": {
+     "off_mem": "0x110",
+     "valor": 10,
+     "origen": "PES"
+    },
+    "hitAfterCancel.hitAfterCancelFrameLimit": {
+     "off_mem": "0x114",
+     "valor": 20,
+     "origen": "PES"
+    },
+    "hitAfterCancel.parameterRange.max": {
+     "off_mem": "0x118",
+     "valor": 95,
+     "origen": "PES"
+    },
+    "hitAfterCancel.parameterRange.min": {
+     "off_mem": "0x11c",
+     "valor": 50,
+     "origen": "PES"
+    },
+    "reachOut.ballSpeed": {
+     "off_mem": "0x120",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reachOut.reach": {
+     "off_mem": "0x124",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "reachOut.use": {
+     "off_mem": "0x128",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.checkTime": {
+     "off_mem": "0x12c",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.airBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x130",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.airBall.paraMax.reactionTime": {
+     "off_mem": "0x134",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.airBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x138",
+     "valor": 45.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.airBall.paraMin.reactionTime": {
+     "off_mem": "0x13c",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.groundBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x140",
+     "valor": 60.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.groundBall.paraMax.reactionTime": {
+     "off_mem": "0x144",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.groundBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x148",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.groundBall.paraMin.reactionTime": {
+     "off_mem": "0x14c",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.use": {
+     "off_mem": "0x150",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.airBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x154",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.airBall.paraMax.reactionTime": {
+     "off_mem": "0x158",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.airBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x15c",
+     "valor": 45.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.airBall.paraMin.reactionTime": {
+     "off_mem": "0x160",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.groundBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x164",
+     "valor": 60.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.groundBall.paraMax.reactionTime": {
+     "off_mem": "0x168",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.groundBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x16c",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.groundBall.paraMin.reactionTime": {
+     "off_mem": "0x170",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.use": {
+     "off_mem": "0x174",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionIK": {
+     "off_mem": "0x178",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.airBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x17c",
+     "valor": 60.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.airBall.paraMax.reactionTime": {
+     "off_mem": "0x180",
+     "valor": 0.2,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.airBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x184",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.airBall.paraMin.reactionTime": {
+     "off_mem": "0x188",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.groundBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x18c",
+     "valor": 80.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.groundBall.paraMax.reactionTime": {
+     "off_mem": "0x190",
+     "valor": 0.1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.groundBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x194",
+     "valor": 70.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.groundBall.paraMin.reactionTime": {
+     "off_mem": "0x198",
+     "valor": 0.15,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.use": {
+     "off_mem": "0x19c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.use": {
+     "off_mem": "0x1a0",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "staggerTrapHeight": {
+     "off_mem": "0x1a4",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "stopTrap.inputTime": {
+     "off_mem": "0x1a8",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "stopTrap.use": {
+     "off_mem": "0x1ac",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "throughCommandType": {
+     "off_mem": "0x1b0",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "touchAfterSec.defence": {
+     "off_mem": "0x1b4",
+     "valor": 0.15,
+     "origen": "PES"
+    },
+    "touchAfterSec.defenceKeep": {
+     "off_mem": "0x1b8",
+     "valor": 0.25,
+     "origen": "PES"
+    },
+    "touchAfterSec.offence": {
+     "off_mem": "0x1bc",
+     "valor": 0.15,
+     "origen": "PES"
+    },
+    "touchAfterSec.shoot": {
+     "off_mem": "0x1c0",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "touchAfterSec.shootSpeedBall": {
+     "off_mem": "0x1c4",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "trapChapeuAuto": {
+     "off_mem": "0x1c8",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "trapCutFrame.default": {
+     "off_mem": "0x1cc",
+     "valor": 8,
+     "origen": "PES"
+    },
+    "trapCutFrame.fast": {
+     "off_mem": "0x1d0",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "trapLoss": {
+     "off_mem": "0x1d4",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "trapLossDashOnly": {
+     "off_mem": "0x1d5",
+     "valor": 1,
+     "origen": "PES"
+    }
+   },
+   "passget": {
+    "autoFrontMove.enable": {
+     "off_mem": "0x008",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "autoFrontMove.moveKind": {
+     "off_mem": "0x00c",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "autoFrontMove.pressure.circleDist": {
+     "off_mem": "0x010",
+     "valor": 9.0,
+     "origen": "PES"
+    },
+    "autoFrontMove.pressure.mode": {
+     "off_mem": "0x014",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "autoFrontMove.pressure.secDiff": {
+     "off_mem": "0x018",
+     "valor": 0.1,
+     "origen": "PES"
+    },
+    "autoFrontMove.pressure.thinkDelay": {
+     "off_mem": "0x01c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "autoFrontMove.slowMoveEnable": {
+     "off_mem": "0x020",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballArrivalFastSec": {
+     "off_mem": "0x024",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballAvoidEnable": {
+     "off_mem": "0x028",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballFollow.eneble": {
+     "off_mem": "0x029",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "ballFollow.inputR1": {
+     "off_mem": "0x02a",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballFollowNeutral.ballAngle": {
+     "off_mem": "0x02c",
+     "valor": 30.0,
+     "origen": "PES"
+    },
+    "ballFollowNeutral.ballSpeedMax": {
+     "off_mem": "0x030",
+     "valor": 40.0,
+     "origen": "PES"
+    },
+    "ballFollowNeutral.ballSpeedMin": {
+     "off_mem": "0x034",
+     "valor": 5.0,
+     "origen": "PES"
+    },
+    "defence.paraMax": {
+     "off_mem": "0x038",
+     "valor": 90.0,
+     "origen": "PES"
+    },
+    "defence.paraMin": {
+     "off_mem": "0x03c",
+     "valor": 60.0,
+     "origen": "PES"
+    },
+    "defence.secMax": {
+     "off_mem": "0x040",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "defence.secMin": {
+     "off_mem": "0x044",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "inputMoveAir.ballBound": {
+     "off_mem": "0x048",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "inputMoveAir.ballHeight": {
+     "off_mem": "0x04c",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "inputMoveAir.enable": {
+     "off_mem": "0x050",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "inputMoveAir.inputR2": {
+     "off_mem": "0x051",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "inputMoveAir.moveRange.length": {
+     "off_mem": "0x054",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "inputMoveAir.moveRange.side": {
+     "off_mem": "0x058",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "inputMoveAir.moveRangeFree.length": {
+     "off_mem": "0x05c",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "inputMoveAir.moveRangeFree.side": {
+     "off_mem": "0x060",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "inputMoveAir.targetDist": {
+     "off_mem": "0x064",
+     "valor": 3.0,
+     "origen": "PES"
+    },
+    "inputMovePosition.enable": {
+     "off_mem": "0x068",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "manualPassGetRate": {
+     "off_mem": "0x06c",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "neutralTrapAutoFront": {
+     "off_mem": "0x070",
+     "valor": 100.0,
+     "origen": "PES"
+    },
+    "nextPlayEnable": {
+     "off_mem": "0x074",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "openBodyMaxValue": {
+     "off_mem": "0x078",
+     "valor": 45.0,
+     "origen": "PES"
+    },
+    "passGetThroughNoTrap": {
+     "off_mem": "0x07c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "positionAdjustAngleSubMax": {
+     "off_mem": "0x080",
+     "valor": 35.0,
+     "origen": "PES"
+    },
+    "positionAdjustEnable": {
+     "off_mem": "0x084",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "positionAdjustSide": {
+     "off_mem": "0x088",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "thinkPressFilterUntilTargetBallThrough": {
+     "off_mem": "0x08c",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "trapRunReceiveMotionFreeMove": {
+     "off_mem": "0x08d",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "trapRunReceiveMotionStepMove": {
+     "off_mem": "0x08e",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "trapStopThinkEnemyFarFoot": {
+     "off_mem": "0x08f",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "trapStopThinkEnemyFrameDiffSec": {
+     "off_mem": "0x090",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "trapStopThinkStrongerFoot": {
+     "off_mem": "0x094",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "trapStopThinkStrongerFootBallSpeedKph": {
+     "off_mem": "0x098",
+     "valor": 22.5,
+     "origen": "PES"
+    }
+   }
+  },
+  "PES2021_Holland": {
+   "trap": {
+    "afterCollision.hitAfterFrame": {
+     "off_mem": "0x008",
+     "valor": 10,
+     "origen": "PES"
+    },
+    "afterCollision.noHit.foot": {
+     "off_mem": "0x00c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "afterCollision.noHit.reg": {
+     "off_mem": "0x00d",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "afterCollision.noHit.thigh": {
+     "off_mem": "0x00e",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "animeBlend.changeAnimeBlendRate": {
+     "off_mem": "0x010",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "animeBlend.defaultBlendRate": {
+     "off_mem": "0x014",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "animeBlend.use": {
+     "off_mem": "0x018",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "animeCancelFrame.hitFrameBase": {
+     "off_mem": "0x01c",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "animeCancelFrame.kickAddTime": {
+     "off_mem": "0x020",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "animeCancelFrame.otherAddTime": {
+     "off_mem": "0x024",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "animeCancelFrame.use": {
+     "off_mem": "0x028",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "autoR2.checkEnemyFutureFrame": {
+     "off_mem": "0x02c",
+     "valor": 0.33,
+     "origen": "PES"
+    },
+    "autoR2.checkSectorDist": {
+     "off_mem": "0x030",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "autoR2.checkSectorWidth": {
+     "off_mem": "0x034",
+     "valor": 100.0,
+     "origen": "PES"
+    },
+    "ballControlRate": {
+     "off_mem": "0x038",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballControlWeekFootDownLimit": {
+     "off_mem": "0x03c",
+     "valor": 20.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartAfterFrame": {
+     "off_mem": "0x040",
+     "valor": 20,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Dash_Dash": {
+     "off_mem": "0x044",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Dash_Idle": {
+     "off_mem": "0x048",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Dash_Run": {
+     "off_mem": "0x04c",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Idle_Dash": {
+     "off_mem": "0x050",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Idle_Idle": {
+     "off_mem": "0x054",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Idle_Run": {
+     "off_mem": "0x058",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Run_Idle": {
+     "off_mem": "0x05c",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Run_Run": {
+     "off_mem": "0x060",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartFrame.offsetPos_Run_dash": {
+     "off_mem": "0x064",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.burst": {
+     "off_mem": "0x068",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.dashOfRun": {
+     "off_mem": "0x06c",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.speed_0": {
+     "off_mem": "0x070",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.speed_15": {
+     "off_mem": "0x074",
+     "valor": 1.75,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.speed_28": {
+     "off_mem": "0x078",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.blendStartSpeed.use": {
+     "off_mem": "0x07c",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "ballForceDirect.burstSetting.max": {
+     "off_mem": "0x080",
+     "valor": 3.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.burstSetting.min": {
+     "off_mem": "0x084",
+     "valor": 3.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.burstSetting.ratio": {
+     "off_mem": "0x088",
+     "valor": 1.2,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Dash_Dash": {
+     "off_mem": "0x08c",
+     "valor": 2.75,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Dash_Idle": {
+     "off_mem": "0x090",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Dash_Run": {
+     "off_mem": "0x094",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Idle_Dash": {
+     "off_mem": "0x098",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Idle_Idle": {
+     "off_mem": "0x09c",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Idle_Run": {
+     "off_mem": "0x0a0",
+     "valor": 0.75,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Run_Idle": {
+     "off_mem": "0x0a4",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Run_Run": {
+     "off_mem": "0x0a8",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrame.offsetPos_Run_dash": {
+     "off_mem": "0x0ac",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.cancelFrameOffsetPos": {
+     "off_mem": "0x0b0",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "ballForceDirect.kickBasis.offsetPos_Dash": {
+     "off_mem": "0x0b4",
+     "valor": 2.0,
+     "origen": "PES"
+    },
+    "ballForceDirect.kickBasis.offsetPos_Idle": {
+     "off_mem": "0x0b8",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.kickBasis.offsetPos_Run": {
+     "off_mem": "0x0bc",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "ballForceDirect.rateCollisionSpin": {
+     "off_mem": "0x0c0",
+     "valor": 0.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.runDashSetting.max": {
+     "off_mem": "0x0c4",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.runDashSetting.min": {
+     "off_mem": "0x0c8",
+     "valor": 2.25,
+     "origen": "PES"
+    },
+    "ballForceDirect.runDashSetting.ratio": {
+     "off_mem": "0x0cc",
+     "valor": 1.2,
+     "origen": "PES"
+    },
+    "ballForceDirect.use": {
+     "off_mem": "0x0d0",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballInAngle.angleOpen": {
+     "off_mem": "0x0d4",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballInAngle.use": {
+     "off_mem": "0x0d5",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "busyTrapControl.busyTime": {
+     "off_mem": "0x0d8",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "busyTrapControl.checkMyBallPass": {
+     "off_mem": "0x0dc",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "busyTrapControl.runTrapStopTurnAngle": {
+     "off_mem": "0x0e0",
+     "valor": 90.0,
+     "origen": "PES"
+    },
+    "busyTrapControl.stopTrapStopTurnAngle": {
+     "off_mem": "0x0e4",
+     "valor": -1.0,
+     "origen": "PES"
+    },
+    "busyTrapControl.use": {
+     "off_mem": "0x0e8",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "cancel.hitBefore.jumpStartFrame": {
+     "off_mem": "0x0ec",
+     "valor": 6,
+     "origen": "PES"
+    },
+    "defenseTrap.checkBallHeight": {
+     "off_mem": "0x0f0",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "defenseTrap.checkBallLimitRange": {
+     "off_mem": "0x0f4",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "defenseTrap.checkBallMoveVecY": {
+     "off_mem": "0x0f8",
+     "valor": 10.0,
+     "origen": "PES"
+    },
+    "defenseTrap.checkDistKeepPlayerToBall": {
+     "off_mem": "0x0fc",
+     "valor": 1.75,
+     "origen": "PES"
+    },
+    "defenseTrap.custom.angleOut": {
+     "off_mem": "0x100",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "defenseTrap.custom.speedOut": {
+     "off_mem": "0x104",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "defenseTrap.custom.use": {
+     "off_mem": "0x108",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "defenseTrap.use": {
+     "off_mem": "0x10c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "hitAfterCancel.frameRange": {
+     "off_mem": "0x110",
+     "valor": 10,
+     "origen": "PES"
+    },
+    "hitAfterCancel.hitAfterCancelFrameLimit": {
+     "off_mem": "0x114",
+     "valor": 20,
+     "origen": "PES"
+    },
+    "hitAfterCancel.parameterRange.max": {
+     "off_mem": "0x118",
+     "valor": 95,
+     "origen": "PES"
+    },
+    "hitAfterCancel.parameterRange.min": {
+     "off_mem": "0x11c",
+     "valor": 50,
+     "origen": "PES"
+    },
+    "reachOut.ballSpeed": {
+     "off_mem": "0x120",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reachOut.reach": {
+     "off_mem": "0x124",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "reachOut.use": {
+     "off_mem": "0x128",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.checkTime": {
+     "off_mem": "0x12c",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.airBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x130",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.airBall.paraMax.reactionTime": {
+     "off_mem": "0x134",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.airBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x138",
+     "valor": 45.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.airBall.paraMin.reactionTime": {
+     "off_mem": "0x13c",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.groundBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x140",
+     "valor": 60.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.groundBall.paraMax.reactionTime": {
+     "off_mem": "0x144",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.groundBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x148",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.groundBall.paraMin.reactionTime": {
+     "off_mem": "0x14c",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionBoundBall.use": {
+     "off_mem": "0x150",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.airBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x154",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.airBall.paraMax.reactionTime": {
+     "off_mem": "0x158",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.airBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x15c",
+     "valor": 45.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.airBall.paraMin.reactionTime": {
+     "off_mem": "0x160",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.groundBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x164",
+     "valor": 60.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.groundBall.paraMax.reactionTime": {
+     "off_mem": "0x168",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.groundBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x16c",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.groundBall.paraMin.reactionTime": {
+     "off_mem": "0x170",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionEnemyBall.use": {
+     "off_mem": "0x174",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionIK": {
+     "off_mem": "0x178",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.airBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x17c",
+     "valor": 60.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.airBall.paraMax.reactionTime": {
+     "off_mem": "0x180",
+     "valor": 0.2,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.airBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x184",
+     "valor": 50.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.airBall.paraMin.reactionTime": {
+     "off_mem": "0x188",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.groundBall.paraMax.reactionBallSpeed": {
+     "off_mem": "0x18c",
+     "valor": 80.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.groundBall.paraMax.reactionTime": {
+     "off_mem": "0x190",
+     "valor": 0.1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.groundBall.paraMin.reactionBallSpeed": {
+     "off_mem": "0x194",
+     "valor": 70.0,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.groundBall.paraMin.reactionTime": {
+     "off_mem": "0x198",
+     "valor": 0.15,
+     "origen": "PES"
+    },
+    "reactionTrapBall.reactionOwnBall.use": {
+     "off_mem": "0x19c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "reactionTrapBall.use": {
+     "off_mem": "0x1a0",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "staggerTrapHeight": {
+     "off_mem": "0x1a4",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "stopTrap.inputTime": {
+     "off_mem": "0x1a8",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "stopTrap.use": {
+     "off_mem": "0x1ac",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "throughCommandType": {
+     "off_mem": "0x1b0",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "touchAfterSec.defence": {
+     "off_mem": "0x1b4",
+     "valor": 0.15,
+     "origen": "PES"
+    },
+    "touchAfterSec.defenceKeep": {
+     "off_mem": "0x1b8",
+     "valor": 0.25,
+     "origen": "PES"
+    },
+    "touchAfterSec.offence": {
+     "off_mem": "0x1bc",
+     "valor": 0.15,
+     "origen": "PES"
+    },
+    "touchAfterSec.shoot": {
+     "off_mem": "0x1c0",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "touchAfterSec.shootSpeedBall": {
+     "off_mem": "0x1c4",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "trapChapeuAuto": {
+     "off_mem": "0x1c8",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "trapCutFrame.default": {
+     "off_mem": "0x1cc",
+     "valor": 8,
+     "origen": "PES"
+    },
+    "trapCutFrame.fast": {
+     "off_mem": "0x1d0",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "trapLoss": {
+     "off_mem": "0x1d4",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "trapLossDashOnly": {
+     "off_mem": "0x1d5",
+     "valor": 1,
+     "origen": "PES"
+    }
+   },
+   "passget": {
+    "autoFrontMove.enable": {
+     "off_mem": "0x008",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "autoFrontMove.moveKind": {
+     "off_mem": "0x00c",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "autoFrontMove.pressure.circleDist": {
+     "off_mem": "0x010",
+     "valor": 9.0,
+     "origen": "PES"
+    },
+    "autoFrontMove.pressure.mode": {
+     "off_mem": "0x014",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "autoFrontMove.pressure.secDiff": {
+     "off_mem": "0x018",
+     "valor": 0.1,
+     "origen": "PES"
+    },
+    "autoFrontMove.pressure.thinkDelay": {
+     "off_mem": "0x01c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "autoFrontMove.slowMoveEnable": {
+     "off_mem": "0x020",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballArrivalFastSec": {
+     "off_mem": "0x024",
+     "valor": 1.0,
+     "origen": "PES"
+    },
+    "ballAvoidEnable": {
+     "off_mem": "0x028",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballFollow.eneble": {
+     "off_mem": "0x029",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "ballFollow.inputR1": {
+     "off_mem": "0x02a",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "ballFollowNeutral.ballAngle": {
+     "off_mem": "0x02c",
+     "valor": 30.0,
+     "origen": "PES"
+    },
+    "ballFollowNeutral.ballSpeedMax": {
+     "off_mem": "0x030",
+     "valor": 40.0,
+     "origen": "PES"
+    },
+    "ballFollowNeutral.ballSpeedMin": {
+     "off_mem": "0x034",
+     "valor": 5.0,
+     "origen": "PES"
+    },
+    "defence.paraMax": {
+     "off_mem": "0x038",
+     "valor": 90.0,
+     "origen": "PES"
+    },
+    "defence.paraMin": {
+     "off_mem": "0x03c",
+     "valor": 60.0,
+     "origen": "PES"
+    },
+    "defence.secMax": {
+     "off_mem": "0x040",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "defence.secMin": {
+     "off_mem": "0x044",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "inputMoveAir.ballBound": {
+     "off_mem": "0x048",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "inputMoveAir.ballHeight": {
+     "off_mem": "0x04c",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "inputMoveAir.enable": {
+     "off_mem": "0x050",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "inputMoveAir.inputR2": {
+     "off_mem": "0x051",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "inputMoveAir.moveRange.length": {
+     "off_mem": "0x054",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "inputMoveAir.moveRange.side": {
+     "off_mem": "0x058",
+     "valor": 0.5,
+     "origen": "PES"
+    },
+    "inputMoveAir.moveRangeFree.length": {
+     "off_mem": "0x05c",
+     "valor": 1.5,
+     "origen": "PES"
+    },
+    "inputMoveAir.moveRangeFree.side": {
+     "off_mem": "0x060",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "inputMoveAir.targetDist": {
+     "off_mem": "0x064",
+     "valor": 3.0,
+     "origen": "PES"
+    },
+    "inputMovePosition.enable": {
+     "off_mem": "0x068",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "manualPassGetRate": {
+     "off_mem": "0x06c",
+     "valor": 0.0,
+     "origen": "PES"
+    },
+    "neutralTrapAutoFront": {
+     "off_mem": "0x070",
+     "valor": 100.0,
+     "origen": "PES"
+    },
+    "nextPlayEnable": {
+     "off_mem": "0x074",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "openBodyMaxValue": {
+     "off_mem": "0x078",
+     "valor": 45.0,
+     "origen": "PES"
+    },
+    "passGetThroughNoTrap": {
+     "off_mem": "0x07c",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "positionAdjustAngleSubMax": {
+     "off_mem": "0x080",
+     "valor": 35.0,
+     "origen": "PES"
+    },
+    "positionAdjustEnable": {
+     "off_mem": "0x084",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "positionAdjustSide": {
+     "off_mem": "0x088",
+     "valor": 0.3,
+     "origen": "PES"
+    },
+    "thinkPressFilterUntilTargetBallThrough": {
+     "off_mem": "0x08c",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "trapRunReceiveMotionFreeMove": {
+     "off_mem": "0x08d",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "trapRunReceiveMotionStepMove": {
+     "off_mem": "0x08e",
+     "valor": 0,
+     "origen": "PES"
+    },
+    "trapStopThinkEnemyFarFoot": {
+     "off_mem": "0x08f",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "trapStopThinkEnemyFrameDiffSec": {
+     "off_mem": "0x090",
+     "valor": 0.4,
+     "origen": "PES"
+    },
+    "trapStopThinkStrongerFoot": {
+     "off_mem": "0x094",
+     "valor": 1,
+     "origen": "PES"
+    },
+    "trapStopThinkStrongerFootBallSpeedKph": {
+     "off_mem": "0x098",
+     "valor": 22.5,
+     "origen": "PES"
+    }
+   }
+  }
+ }
+}

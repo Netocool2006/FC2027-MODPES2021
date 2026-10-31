@@ -1,0 +1,10 @@
+# Gitignore para ProyFIFA / FC27-MODPES2021
+fc27_extract/
+pes_extract/
+mod_out/
+*.tmp
+*.log
+!equipo/
+!distribucion/
+!README.md
+!DOC_TECNICA.md

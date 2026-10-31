@@ -1,0 +1,875 @@
+{
+ "sistema": "movimiento",
+ "fuente": "G:\\ProyFIFA\\equipo\\movimiento\\TRADUCCION_FC.md",
+ "nota": "cuando: siempre = va con el modo PES; con_enganche = solo con el getter de \"enganches\" activo; opcional = aproximacion, por defecto NO. Espiritu de equipo ACTIVO en ambos perfiles (NO TS de Holland solo oculta la interfaz). gp_defense_tackling: ver entradas_valores_fc.json (agente entradas).",
+ "cambios": [
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "ATTR_SprintAccelerationTblMinMax",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/ATTR_SprintAccelerationTblMinMax",
+   "actual": [
+    0.013333329930901527,
+    0.01666666939854622
+   ],
+   "nuevo": [
+    0.0015,
+    0.008
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "con_enganche",
+   "getter": "0x4cb0e80",
+   "confianza": "PROBABLE",
+   "motivo": "la aceleracion PES (0.0019-0.0071 pies/tick2) no cabe en la tabla FC; el getter devuelve la tasa PES"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "ATTR_SprintAcceleration",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/ATTR_SprintAcceleration",
+   "actual": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.1,
+     0.01
+    ],
+    [
+     0.2,
+     0.025
+    ],
+    [
+     0.3,
+     0.07
+    ],
+    [
+     0.4,
+     0.15
+    ],
+    [
+     0.5,
+     0.26
+    ],
+    [
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.55
+    ],
+    [
+     0.8,
+     0.7
+    ],
+    [
+     0.9,
+     0.85
+    ],
+    [
+     1.0,
+     1.0
+    ]
+   ],
+   "nuevo": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     1.0,
+     1.0
+    ]
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "con_enganche",
+   "getter": "0x4cb0e80",
+   "confianza": "PROBABLE",
+   "motivo": "curva recta: el getter ya da la tasa PES"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "ATTR_SprintSpeedFatiguedTblMinMax",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/ATTR_SprintSpeedFatiguedTblMinMax",
+   "actual": [
+    0.33000001311302185,
+    0.375
+   ],
+   "nuevo": [
+    0.42,
+    0.53
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "0x4cb09c0",
+   "confianza": "PROBABLE",
+   "motivo": "el cansancio lo aplica la regla PES"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "ATTR_SprintSpeedTblMinMaxFaster",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/ATTR_SprintSpeedTblMinMaxFaster",
+   "actual": [
+    0.41999998688697815,
+    0.5199999809265137
+   ],
+   "nuevo": [
+    0.42,
+    0.53
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "0x4cb09c0",
+   "confianza": "PROBABLE",
+   "motivo": "una sola tabla de sprint como PES"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "ATTR_SprintSpeedShortTermFatigueReduction",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/ATTR_SprintSpeedShortTermFatigueReduction",
+   "actual": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.05,
+     0.0
+    ],
+    [
+     0.1,
+     0.0
+    ],
+    [
+     0.15,
+     0.0
+    ],
+    [
+     0.2,
+     0.0
+    ],
+    [
+     0.25,
+     0.0
+    ],
+    [
+     0.3,
+     0.0
+    ],
+    [
+     0.35,
+     0.0
+    ],
+    [
+     0.4,
+     0.0
+    ],
+    [
+     0.45,
+     0.0
+    ],
+    [
+     0.5,
+     0.0
+    ],
+    [
+     0.55,
+     0.0
+    ],
+    [
+     0.6,
+     0.0
+    ],
+    [
+     0.65,
+     0.02
+    ],
+    [
+     0.7,
+     0.05
+    ],
+    [
+     0.75,
+     0.1
+    ],
+    [
+     0.8,
+     0.2
+    ],
+    [
+     0.85,
+     0.35
+    ],
+    [
+     0.9,
+     0.5
+    ],
+    [
+     0.95,
+     0.75
+    ],
+    [
+     1.0,
+     1.0
+    ]
+   ],
+   "nuevo": "curva_plana:0",
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "neutralizar rebaja FC por cansancio"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "ATTR_AccelerationShortTermFatigueReduction",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/ATTR_AccelerationShortTermFatigueReduction",
+   "actual": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.05,
+     0.0
+    ],
+    [
+     0.1,
+     0.0
+    ],
+    [
+     0.15,
+     0.0
+    ],
+    [
+     0.2,
+     0.0
+    ],
+    [
+     0.25,
+     0.01
+    ],
+    [
+     0.3,
+     0.02
+    ],
+    [
+     0.35,
+     0.04
+    ],
+    [
+     0.4,
+     0.05
+    ],
+    [
+     0.45,
+     0.06
+    ],
+    [
+     0.5,
+     0.07
+    ],
+    [
+     0.55,
+     0.11
+    ],
+    [
+     0.6,
+     0.15
+    ],
+    [
+     0.65,
+     0.17
+    ],
+    [
+     0.7,
+     0.21
+    ],
+    [
+     0.75,
+     0.23
+    ],
+    [
+     0.8,
+     0.25
+    ],
+    [
+     0.85,
+     0.3
+    ],
+    [
+     0.9,
+     0.35
+    ],
+    [
+     0.95,
+     0.4
+    ],
+    [
+     1.0,
+     0.45
+    ]
+   ],
+   "nuevo": "curva_plana:0",
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "neutralizar rebaja FC por cansancio"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Scalar_Dribble",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Scalar_Dribble",
+   "actual": 3.0,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Scalar_Loco",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Scalar_Loco",
+   "actual": 4.0,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Scalar_Jockey",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Scalar_Jockey",
+   "actual": 1.2000000476837158,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Scalar_Dribble_RegularTrait",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Scalar_Dribble_RegularTrait",
+   "actual": 3.200000047683716,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Scalar_Loco_RegularTrait",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Scalar_Loco_RegularTrait",
+   "actual": 4.199999809265137,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Scalar_Jockey_RegularTrait",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Scalar_Jockey_RegularTrait",
+   "actual": 1.2999999523162842,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Scalar_Dribble_IconTrait",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Scalar_Dribble_IconTrait",
+   "actual": 3.4000000953674316,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Scalar_Loco_IconTrait",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Scalar_Loco_IconTrait",
+   "actual": 4.400000095367432,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Scalar_Jockey_IconTrait",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Scalar_Jockey_IconTrait",
+   "actual": 1.399999976158142,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Duration",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Duration",
+   "actual": 8.0,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Duration_IconTrait",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Duration_IconTrait",
+   "actual": 10.0,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Jockey_Duration",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Jockey_Duration",
+   "actual": 6.0,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "SprintAccelerationBoost_Jockey_Duration_IconTrait",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/SprintAccelerationBoost_Jockey_Duration_IconTrait",
+   "actual": 8.0,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene acelerones por rasgo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_action",
+   "campo": "TimeToStopAtFullSpeed",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_action_runtime/TimeToStopAtFullSpeed",
+   "actual": 0.43333300948143005,
+   "nuevo": 1.15,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "frenada PES 1.25 - 0.2 r^2 s (r medio 0.5)"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_action",
+   "campo": "DistanceToStopAtFullSpeed",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_action_runtime/DistanceToStopAtFullSpeed",
+   "actual": 9.0,
+   "nuevo": 18.3,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "coherente con 1.15 s a velocidad punta (pies)"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_action",
+   "campo": "MaxOversteerAngle",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_action_runtime/MaxOversteerAngle",
+   "actual": 90.0,
+   "nuevo": 67.5,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "freemove.runLoopBank.rotYLimMax de PES"
+  },
+  {
+   "grupo": "gp_playerattribute",
+   "instancia": "gp_playerattribute_attributes",
+   "campo": "ATTR_ShortTermFatigueSlowdownRate",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_playerattribute/gp_playerattribute_attributes_runtime/ATTR_ShortTermFatigueSlowdownRate",
+   "actual": 0.25,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "el cansancio lo aplica la regla PES"
+  },
+  {
+   "grupo": "gp_playerattribute",
+   "instancia": "gp_playerattribute_attributes",
+   "campo": "ATTR_LongTermFatigueSpeedFactor",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_playerattribute/gp_playerattribute_attributes_runtime/ATTR_LongTermFatigueSpeedFactor",
+   "actual": 0.8500000238418579,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES baja atributos con pes_atributo_partido (0x92af10)"
+  },
+  {
+   "grupo": "gp_playerattribute",
+   "instancia": "gp_playerattribute_attributes",
+   "campo": "DisableFatigueOnControlledPlayer",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_playerattribute/gp_playerattribute_attributes_runtime/DisableFatigueOnControlledPlayer",
+   "actual": false,
+   "nuevo": false,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "DEMOSTRADO",
+   "motivo": "PES cansa tambien al jugador controlado (base competitiva = true)"
+  },
+  {
+   "grupo": "gp_locomotion",
+   "instancia": "gp_locomotion_slipturn",
+   "campo": "NoTouchSlipTurnBestChance",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_locomotion/gp_locomotion_slipturn_runtime/NoTouchSlipTurnBestChance",
+   "actual": 0.10000000149011612,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene resbalones al girar"
+  },
+  {
+   "grupo": "gp_locomotion",
+   "instancia": "gp_locomotion_slipturn",
+   "campo": "NoTouchSlipTurnWorstChance",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_locomotion/gp_locomotion_slipturn_runtime/NoTouchSlipTurnWorstChance",
+   "actual": 0.20000000298023224,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene resbalones al girar"
+  },
+  {
+   "grupo": "gp_locomotion",
+   "instancia": "gp_locomotion_slipturn",
+   "campo": "SkillMoveSlipTurnBestChance",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_locomotion/gp_locomotion_slipturn_runtime/SkillMoveSlipTurnBestChance",
+   "actual": 0.6000000238418579,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene resbalones al girar"
+  },
+  {
+   "grupo": "gp_locomotion",
+   "instancia": "gp_locomotion_slipturn",
+   "campo": "SkillMoveSlipTurnWorstChance",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_locomotion/gp_locomotion_slipturn_runtime/SkillMoveSlipTurnWorstChance",
+   "actual": 0.800000011920929,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene resbalones al girar"
+  },
+  {
+   "grupo": "gp_team",
+   "instancia": "gp_team_effectstable",
+   "campo": "teamchemistry_effects",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_team/gp_team_effectstable_runtime/teamchemistry_effects",
+   "actual": [
+    -8.0,
+    -7.0,
+    -6.0,
+    -4.0,
+    -2.0,
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    7.0,
+    8.0
+   ],
+   "nuevo": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "siempre",
+   "getter": "-",
+   "confianza": "PROBABLE",
+   "motivo": "la quimica se aplica como espiritu de equipo PES (x0.7-1.0, pes_factor_moral); no duplicar los +-8 puntos de FC"
+  },
+  {
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_tackling",
+   "campo": "Tackle_FromBehindAngle",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_tackling_runtime/Tackle_FromBehindAngle",
+   "actual": 65.0,
+   "nuevo": 45.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "opcional_respaldo",
+   "getter": "-",
+   "confianza": "APROXIMADO",
+   "motivo": "solo si no se engancha el contacto (carga por la espalda > 135)"
+  },
+  {
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_pushpull",
+   "campo": "PushPull_FallThreshold",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_pushpull_runtime/PushPull_FallThreshold",
+   "actual": 0.8500000238418579,
+   "nuevo": 0.6,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "opcional_respaldo",
+   "getter": "0x51b3190",
+   "confianza": "APROXIMADO",
+   "motivo": "solo si no se engancha 0x51b3190"
+  },
+  {
+   "grupo": "gp_defense",
+   "instancia": "gp_defense_pushpull",
+   "campo": "PushPull_MedIntensityThreshold",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_defense/gp_defense_pushpull_runtime/PushPull_MedIntensityThreshold",
+   "actual": 0.4000000059604645,
+   "nuevo": 0.25,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "cuando": "opcional_respaldo",
+   "getter": "0x51b0020",
+   "confianza": "APROXIMADO",
+   "motivo": "solo si no se engancha 0x51b0020"
+  }
+ ],
+ "enganches": [
+  {
+   "va": "0x4cb0e80",
+   "que": "ATTR_SprintAcceleration (tasa 0..1)",
+   "forma": "b",
+   "c": "pes_fc_tasa_aceleracion(pes_fc_aceleracion(vmax, ritmo, objetivo, 1, r, 0), 0.0015, 0.008); r = pes_norm_habilidad(pes_habilidad_con_fatiga(pes_atributo_partido(Acceleration, 0x2b, est, aliento), aliento), 40, 99)",
+   "falta": [
+    "M1",
+    "M3"
+   ]
+  },
+  {
+   "va": "0x4cb09c0",
+   "que": "velocidad de sprint (pies/tick)",
+   "forma": "b",
+   "c": "pes_fc_velocidad_sprint(v_FC, r, altura_cm)",
+   "falta": [
+    "M2"
+   ]
+  },
+  {
+   "va": "0x51b0020 / 0x51b3190",
+   "que": "decision de tambaleo/caida en forcejeo",
+   "forma": "b",
+   "c": "acoso = {0, 0.39, 0.6, 0.9}[pes_contacto_final(pes_contacto_clasificar(contact, &e), ...)]",
+   "falta": [
+    "M3",
+    "M5"
+   ]
+  },
+  {
+   "va": "(atributos PES efectivos)",
+   "que": "factores de 0x92af10",
+   "forma": "b",
+   "c": "pes_atributo_efectivo(base, {pes_factor_forma, pes_factor_moral(TS: activo en Original y Holland), pes_factor_aptitud, 1, pes_factor_estamina}, pes_penalizacion_aliento, ...)",
+   "falta": [
+    "M1",
+    "M2"
+   ]
+  }
+ ]
+}

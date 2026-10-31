@@ -1,0 +1,109 @@
+{
+ "sistema": "porteros",
+ "fuente": "G:\\ProyFIFA\\equipo\\porteros\\ENGANCHES_PORTEROS.md",
+ "codigo": "G:\\ProyFIFA\\equipo\\porteros\\consola\\pes_porteros_consola.c",
+ "control": "g_porteros (PES_DATA, marca 'PESPORTEROS v1'): activos = 0 -> todo neutro (solo cuenta y observa). bits: 0 E1, 1 E2, 2 E3, 3 E4, 4 E5, 31 sombra",
+ "confianza": "DEMOSTRADO por analisis estatico (estructura y llamadas); SIN MEDIR en consola (medir_porteros.py)",
+ "enganches": [
+  {
+   "id": "E1",
+   "que": "destino de locomocion del portero (AIPlayerGKMove::Execute)",
+   "forma": "addend",
+   "ranura_va": "0x109ebf58",
+   "vtable": "0x109ebf10 (+0x48, ranura 9)",
+   "addend_original": "0x4c36f90",
+   "addend_nuevo": "pes_gk_mover_entrada",
+   "simbolo_original": "fc_gk_mover = 0x4c36f90",
+   "bit": 0
+  },
+  {
+   "id": "E2",
+   "que": "inicio de la parada (AIPlayerGKSave::Execute)",
+   "forma": "addend",
+   "ranura_va": "0x109ec090",
+   "vtable": "0x109ec048 (+0x48)",
+   "addend_original": "0x4c38a90",
+   "addend_nuevo": "pes_gk_parada_entrada",
+   "simbolo_original": "fc_gk_parada = 0x4c38a90",
+   "bit": 1
+  },
+  {
+   "id": "E3",
+   "que": "blocar o desviar (llamada a 0x521fef0, GKCatchVsDeflect*)",
+   "forma": "rel32",
+   "va": "0x4a40400",
+   "bytes_originales": "e8ebfa7d00",
+   "bytes_nuevos": "e8 + rel32(0x4a40405 -> pes_gk_blocar)",
+   "simbolo_original": "fc_gk_blocar = 0x521fef0",
+   "bit": 2
+  },
+  {
+   "id": "E4",
+   "que": "atrape: toques Catch 11 / HoldLeftHand 12 / HoldRightHand 13 en 0x4ab8e30",
+   "forma": "llamada desde pes_toque_registro (C9)",
+   "va": "0x4abb518 / 0x4abb70b (enganche existente pes_toque_inicio)",
+   "integracion": "al principio de pes_toque_registro, ANTES del retorno por !fotogramas: pes_gk_toque_portero(balon, (uint32_t *)toque, fotogramas ? fotogramas - 0x110 : 0, st, jugador)",
+   "bit": 3
+  },
+  {
+   "id": "E5a",
+   "que": "saque con la mano (AiPlayerGoalieThrow::Execute)",
+   "forma": "addend",
+   "ranura_va": "0x109ec230",
+   "vtable": "0x109ec1e8 (+0x48)",
+   "addend_original": "0x4c3e2e0",
+   "addend_nuevo": "pes_gk_saque_mano_entrada",
+   "simbolo_original": "fc_gk_saque_mano = 0x4c3e2e0",
+   "bit": 4
+  },
+  {
+   "id": "E5b",
+   "que": "saque con el pie (AiPlayerGoalieDropKick::Execute)",
+   "forma": "addend",
+   "ranura_va": "0x109ec1c8",
+   "vtable": "0x109ec180 (+0x48)",
+   "addend_original": "0x4c3dc40",
+   "addend_nuevo": "pes_gk_saque_pie_entrada",
+   "simbolo_original": "fc_gk_saque_pie = 0x4c3dc40",
+   "bit": 4
+  },
+  {
+   "id": "E6a",
+   "que": "selector mano/pie: peticion de patada (GKKickRequest, controlador del jugador)",
+   "forma": "addend",
+   "ranura_va": "0x109e4398",
+   "vtable": "0x109e42e0 (+0xb8, ranura 23)",
+   "addend_original": "0x49233a0",
+   "addend_nuevo": "pes_gk_peticion_patada_entrada",
+   "simbolo_original": "fc_gk_peticion_patada = 0x49233a0",
+   "bit": 5
+  },
+  {
+   "id": "E6b",
+   "que": "selector mano/pie: peticion de saque con la mano (GKThrowRequest)",
+   "forma": "addend",
+   "ranura_va": "0x109e43a8",
+   "vtable": "0x109e42e0 (+0xc8, ranura 25)",
+   "addend_original": "0x4923660",
+   "addend_nuevo": "pes_gk_peticion_mano_entrada",
+   "simbolo_original": "fc_gk_peticion_mano = 0x4923660",
+   "bit": 5
+  },
+  {
+   "id": "T54",
+   "que": "contador a 54/s para la logica PES",
+   "forma": "llamada",
+   "integracion": "pes_gk_tick_54() una vez por cada 1/54 s de partido (acumulador del integrador del balon)",
+   "bit": null
+  }
+ ],
+ "alternativas_prologo": {
+  "0x4c36f90": "554889e54157415641554154534881eca8030000",
+  "0x4c38a90": "554889e54157415641554154534881ecd80b0000",
+  "0x4c3e2e0": "554889e54157415641554154534881eca8040000",
+  "0x4c3dc40": "554889e54157415641554154534881ecb8040000",
+  "0x521fef0": "554889e54157415641554154534883ec38 (17 B; el 18.o empieza un mov rip-relativo)",
+  "nota": "20 B sin rip-relativo en las cuatro Execute: valen para jmp + trampolin si no se quiere tocar la Rela"
+ },
+ "depende_de": "jugador_fc.c (movimiento): mismo camino de ranuras; pes_porteros_consola.c lo reimplementa en leer_jugadores() con las mismas comprobaciones"
+}

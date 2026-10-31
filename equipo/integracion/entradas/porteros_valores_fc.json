@@ -1,0 +1,82 @@
+{
+  "sistema": "porteros_ia_reaccion",
+  "descripcion": "Calibracion de porteros estilo PES 2021 (reduccion de asistencia magnetica, blocajes mas organicos y despejes sin efecto palomita artificial)",
+  "archivos_fuente": [
+    "gp_goalkeeper_be_a_goalkeeper",
+    "gp_goalkeeper_MLGoalkeeper"
+  ],
+  "parametros": [
+    {
+      "grupo": "gp_goalkeeper",
+      "instancia": "gp_goalkeeper_be_a_goalkeeper",
+      "grupo_offset": "0x160",
+      "instancia_offset": "0x148",
+      "campo": "AutoSaveRadiusFullAssist",
+      "campo_offset": "0x120",
+      "tipo": "f32",
+      "valor_fc": 4.5,
+      "valor_pes": 2.8,
+      "motivo": "Reduce el radio de salvada asistida automatica para evitar paradas teledirigidas o irreales"
+    },
+    {
+      "grupo": "gp_goalkeeper",
+      "instancia": "gp_goalkeeper_be_a_goalkeeper",
+      "grupo_offset": "0x160",
+      "instancia_offset": "0x148",
+      "campo": "AutoSaveRadiusPartiallAssist",
+      "campo_offset": "0x11c",
+      "tipo": "f32",
+      "valor_fc": 3.5,
+      "valor_pes": 2.2,
+      "motivo": "Exige mejor colocacion manual o posicional al guardameta en disparos cruzados"
+    },
+    {
+      "grupo": "gp_goalkeeper",
+      "instancia": "gp_goalkeeper_be_a_goalkeeper",
+      "grupo_offset": "0x160",
+      "instancia_offset": "0x148",
+      "campo": "CrossCatchExtendedCoverage",
+      "campo_offset": "0x198",
+      "tipo": "f32",
+      "valor_fc": 1.2,
+      "valor_pes": 0.95,
+      "motivo": "Limita el alcance desmedido en salidas por alto, favoreciendo centros disputados con la cabeza"
+    },
+    {
+      "grupo": "gp_goalkeeper",
+      "instancia": "gp_goalkeeper_be_a_goalkeeper",
+      "grupo_offset": "0x160",
+      "instancia_offset": "0x148",
+      "campo": "CrossDeflectAndPunchExtendedCoverage",
+      "campo_offset": "0x138",
+      "tipo": "f32",
+      "valor_fc": 1.8,
+      "valor_pes": 1.35,
+      "motivo": "Despejes de puno menos sobredimensionados; el despeje ocurre solo cuando el balon esta en rango real"
+    },
+    {
+      "grupo": "gp_goalkeeper",
+      "instancia": "gp_goalkeeper_be_a_goalkeeper",
+      "grupo_offset": "0x160",
+      "instancia_offset": "0x148",
+      "campo": "SaveAssistReflexIncreaseCoverageFullAssist",
+      "campo_offset": "0x19c",
+      "tipo": "f32",
+      "valor_fc": 60.0,
+      "valor_pes": 40.0,
+      "motivo": "Disminuye la cobertura refleja desmesurada que bloqueaba tiros a quemarropa con animaciones 'warp'"
+    },
+    {
+      "grupo": "gp_goalkeeper",
+      "instancia": "gp_goalkeeper_be_a_goalkeeper",
+      "grupo_offset": "0x160",
+      "instancia_offset": "0x148",
+      "campo": "GkCatchExclusionDifficultyThreshold",
+      "campo_offset": "0x150",
+      "tipo": "f32",
+      "valor_fc": 0.2,
+      "valor_pes": 0.35,
+      "motivo": "Umbral de dificultad para embolsar el balon; ante tiros fuertes desvia o da rechace controlado en vez de atrapar pelotas imposibles"
+    }
+  ]
+}

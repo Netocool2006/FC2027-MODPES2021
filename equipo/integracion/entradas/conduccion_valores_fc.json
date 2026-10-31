@@ -1,0 +1,804 @@
+{
+ "sistema": "conduccion",
+ "fuente": "G:\\ProyFIFA\\equipo\\conduccion\\TRADUCCION_FC.md",
+ "nota": "Mismos valores para Original y Holland: la unica diferencia de mod (staggerDribble.enemyDist 0.8 -> 0.05) va en el .o de cada perfil y la usa pes_conduccion_fc (b).",
+ "cambios": [
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "ATTR_DribbleMinTouchTime",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/ATTR_DribbleMinTouchTime",
+   "actual": [
+    [
+     0.0,
+     6.0
+    ],
+    [
+     45.0,
+     6.0
+    ],
+    [
+     90.0,
+     8.0
+    ],
+    [
+     135.0,
+     9.0
+    ],
+    [
+     180.0,
+     9.0
+    ],
+    [
+     180.0,
+     9.0
+    ],
+    [
+     180.0,
+     9.0
+    ],
+    [
+     180.0,
+     9.0
+    ]
+   ],
+   "nuevo": "curva_plana:18",
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x4cb1520 / 0x4cb44d0",
+   "confianza": "PROBABLE",
+   "motivo": "toque mas rapido de PES 0.30 s (touch0 clase 0) = 18 ticks"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribblePreferredMinTimeIntervalEarliness",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribblePreferredMinTimeIntervalEarliness",
+   "actual": 4.0,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x4cb5320",
+   "confianza": "PROBABLE",
+   "motivo": "PES no adelanta el toque"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleJogBallTargetTime",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleJogBallTargetTime",
+   "actual": 34.0,
+   "nuevo": 24.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "PETICION_CONSOLA conduccion-C2",
+   "confianza": "PROBABLE",
+   "motivo": "touch0 normal 0.40 s"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleSprintBallTargetTimeFastSpeed",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleSprintBallTargetTimeFastSpeed",
+   "actual": 60.0,
+   "nuevo": 72.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "conduccion-C2",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleSprintBallTargetTimeSlowSpeed",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleSprintBallTargetTimeSlowSpeed",
+   "actual": 60.0,
+   "nuevo": 72.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "conduccion-C2",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleSprintBallTargetTimeRunTouch",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleSprintBallTargetTimeRunTouch",
+   "actual": 50.0,
+   "nuevo": 72.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "conduccion-C2",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleSprintBallTargetTimeRunTouchSlowSpeed",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleSprintBallTargetTimeRunTouchSlowSpeed",
+   "actual": 50.0,
+   "nuevo": 72.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "conduccion-C2",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleControlledSprintBallTargetTime",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleControlledSprintBallTargetTime",
+   "actual": 52.0,
+   "nuevo": 72.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "conduccion-C2",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleKnockOnBallTargetTimeLowPower",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleKnockOnBallTargetTimeLowPower",
+   "actual": 60.0,
+   "nuevo": 96.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "conduccion-C2",
+   "confianza": "PROBABLE",
+   "motivo": "touch0 carrera larga 1.6 s"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleKnockOnBallTargetTimeHighPower",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleKnockOnBallTargetTimeHighPower",
+   "actual": 100.0,
+   "nuevo": 96.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "conduccion-C2",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "AnimationPlaybackTimeRatioDribbling",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/AnimationPlaybackTimeRatioDribbling",
+   "actual": [
+    1.0499999523162842,
+    1.0449999570846558,
+    1.0399999618530273,
+    1.024999976158142,
+    1.0,
+    0.949999988079071,
+    0.8999999761581421,
+    0.8500000238418579,
+    0.8199999928474426,
+    0.7799999713897705,
+    0.7400000095367432
+   ],
+   "nuevo": [
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0463,
+    1.0278,
+    0.9983,
+    0.9598,
+    0.9144,
+    0.8696
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "DEMOSTRADO (formula PES 0x7b4a60) / PROBABLE (equivalencia)",
+   "motivo": "1/ritmo PES por decena de atributo"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "AnimationPlaybackTimeRatioDribblingPP",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/AnimationPlaybackTimeRatioDribblingPP",
+   "actual": [
+    1.0499999523162842,
+    1.0399999618530273,
+    1.0199999809265137,
+    1.0,
+    0.9800000190734863,
+    0.9399999976158142,
+    0.8899999856948853,
+    0.8500000238418579,
+    0.8399999737739563,
+    0.8299999833106995,
+    0.800000011920929
+   ],
+   "nuevo": [
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0463,
+    1.0278,
+    0.9983,
+    0.9598,
+    0.9144,
+    0.8696
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "idem",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "AnimationPlaybackTimeRatioDribblingPPAfterTouch",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/AnimationPlaybackTimeRatioDribblingPPAfterTouch",
+   "actual": [
+    1.0399999618530273,
+    1.0299999713897705,
+    1.0199999809265137,
+    1.0099999904632568,
+    1.0,
+    0.9800000190734863,
+    0.9599999785423279,
+    0.9200000166893005,
+    0.8999999761581421,
+    0.8899999856948853,
+    0.8600000143051147
+   ],
+   "nuevo": [
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0463,
+    1.0278,
+    0.9983,
+    0.9598,
+    0.9144,
+    0.8696
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x4cb4d30",
+   "confianza": "idem",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "AnimationPlaybackTimeRatioStrafeDribbling",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/AnimationPlaybackTimeRatioStrafeDribbling",
+   "actual": [
+    1.0449999570846558,
+    1.0399999618530273,
+    1.0299999713897705,
+    1.0199999809265137,
+    0.9900000095367432,
+    0.9399999976158142,
+    0.8799999952316284,
+    0.8299999833106995,
+    0.7900000214576721,
+    0.75,
+    0.7200000286102295
+   ],
+   "nuevo": [
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0463,
+    1.0278,
+    0.9983,
+    0.9598,
+    0.9144,
+    0.8696
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "idem",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "ATTR_TurnTimeRatioForDribble",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/ATTR_TurnTimeRatioForDribble",
+   "actual": [
+    1.0499999523162842,
+    1.0299999713897705,
+    1.0199999809265137,
+    1.0149999856948853,
+    1.0099999904632568,
+    1.0,
+    0.9900000095367432,
+    0.9750000238418579,
+    0.949999988079071,
+    0.9129999876022339,
+    0.875
+   ],
+   "nuevo": [
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0526,
+    1.0463,
+    1.0278,
+    0.9983,
+    0.9598,
+    0.9144,
+    0.8696
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "PES no separa giros"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "ATTR_SkillMovesTimeRatioForDribble",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/ATTR_SkillMovesTimeRatioForDribble",
+   "actual": [
+    1.0049999952316284,
+    1.003999948501587,
+    1.003000020980835,
+    1.0019999742507935,
+    1.0010000467300415,
+    1.0,
+    0.9800000190734863,
+    0.9599999785423279,
+    0.9399999976158142,
+    0.9200000166893005,
+    0.8999999761581421
+   ],
+   "nuevo": [
+    0.944,
+    0.944,
+    0.944,
+    0.944,
+    0.944,
+    0.9414,
+    0.9338,
+    0.9215,
+    0.9047,
+    0.884,
+    0.8625
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "DEMOSTRADO (formula 0x7d72c0) / PROBABLE (equivalencia)",
+   "motivo": "1/ritmo de finta PES por decena de Regate (fase 5)"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleJogAnimPlaybackTimeRatioTechnicalDribblerBoost",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleJogAnimPlaybackTimeRatioTechnicalDribblerBoost",
+   "actual": 0.9700000286102295,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "sin rasgos en PES"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleJogAnimPlaybackTimeRatioTechnicalDribblerIconBoost",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleJogAnimPlaybackTimeRatioTechnicalDribblerIconBoost",
+   "actual": 0.9399999976158142,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleSprintAnimPlaybackTimeRatioSpeedDribblerBoost",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleSprintAnimPlaybackTimeRatioSpeedDribblerBoost",
+   "actual": 0.9700000286102295,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleSprintAnimPlaybackTimeRatioSpeedDribblerIconBoost",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleSprintAnimPlaybackTimeRatioSpeedDribblerIconBoost",
+   "actual": 0.9399999976158142,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleStrafeAnimPlaybackTimeRatioTricksterBoost",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleStrafeAnimPlaybackTimeRatioTricksterBoost",
+   "actual": 1.0,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleStrafeAnimPlaybackTimeRatioTricksterIconBoost",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleStrafeAnimPlaybackTimeRatioTricksterIconBoost",
+   "actual": 0.800000011920929,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x4cb4910",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleShieldAnimPlaybackTimeRatioPossessionHolderBoost",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleShieldAnimPlaybackTimeRatioPossessionHolderBoost",
+   "actual": 0.8999999761581421,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleShieldAnimPlaybackTimeRatioPossessionHolderIconBoost",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleShieldAnimPlaybackTimeRatioPossessionHolderIconBoost",
+   "actual": 0.800000011920929,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleSprintBallTargetAngleRange",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleSprintBallTargetAngleRange",
+   "actual": [
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    11.0,
+    12.0,
+    13.5,
+    15.0
+   ],
+   "nuevo": [
+    45.0,
+    45.0,
+    45.0,
+    45.0,
+    45.0,
+    45.0,
+    45.0,
+    45.0,
+    45.0,
+    45.0,
+    45.0
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "limite de giro PES en carrera 45 grados (0x7bb400)"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "DribbleJogBallTargetAngleRange",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/DribbleJogBallTargetAngleRange",
+   "actual": [
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    11.0,
+    12.0,
+    13.5,
+    15.0
+   ],
+   "nuevo": [
+    67.5,
+    67.5,
+    67.5,
+    67.5,
+    67.5,
+    67.5,
+    67.5,
+    67.5,
+    67.5,
+    67.5,
+    67.5
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "limite 67.5 grados desde trote (0x7bb400)"
+  },
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement",
+   "campo": "StumbleDribble_Enabled_Override",
+   "ruta": "/fifa/attribulator/gameplay/databases/simulation/groups/gp_actor/gp_actor_movement_runtime/StumbleDribble_Enabled_Override",
+   "actual": -1,
+   "nuevo": 0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a+b",
+   "getter": "0x4a0c930 / 0x4a0f8d0 / 0x4a18f30",
+   "confianza": "PROBABLE",
+   "motivo": "tropiezo FC off; se reactiva por toque si PES pide tambaleo (radio Holland enemyDist 0.05)"
+  },
+  {
+   "grupo": "gp_skillmoves",
+   "instancia": "gp_skillmoves_skillmoves_runtime",
+   "campo": "Skillmove_Error",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_skillmoves/gp_skillmoves_skillmoves_runtime/Skillmove_Error",
+   "actual": 0.25,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x55c6a50",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene error aleatorio de direccion en fintas; el error va en el empuje (pes_fc_skillmove_escala)"
+  },
+  {
+   "grupo": "gp_skillmoves",
+   "instancia": "gp_skillmoves_skillmoves_runtime",
+   "campo": "Skillmove_First_Time_Error",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_skillmoves/gp_skillmoves_skillmoves_runtime/Skillmove_First_Time_Error",
+   "actual": 0.5,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x55c6a50",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "gp_kickerror",
+   "instancia": "gp_kickerror_balltoucheffectskillmoves_runtime",
+   "campo": "ERROR_MISS_SkillMove_XZAngleRange",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_kickerror/gp_kickerror_balltoucheffectskillmoves_runtime/ERROR_MISS_SkillMove_XZAngleRange",
+   "actual": [
+    -25.0,
+    25.0
+   ],
+   "nuevo": [
+    0.0,
+    0.0
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x4febcd0 / 0x4fec4e0 / 0x4ff1c70",
+   "confianza": "PROBABLE",
+   "motivo": "sin error de angulo en el toque de finta PES"
+  },
+  {
+   "grupo": "gp_kickerror",
+   "instancia": "gp_kickerror_balltoucheffectskillmoves_runtime",
+   "campo": "ERROR_MISS_SkillMove_SpeedRange",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_kickerror/gp_kickerror_balltoucheffectskillmoves_runtime/ERROR_MISS_SkillMove_SpeedRange",
+   "actual": [
+    -0.15000000596046448,
+    0.20000000298023224
+   ],
+   "nuevo": [
+    0.0,
+    0.0
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a+b",
+   "getter": "0x55c6a50",
+   "confianza": "PROBABLE",
+   "motivo": "la variacion de velocidad la pone pes_fc_skillmove_escala (0x7dfac0: 1.18-1.55 con BC 40, 0.96-1.04 con BC 99)"
+  },
+  {
+   "grupo": "?",
+   "instancia": "?",
+   "campo": "WALLS_DribbleShield_ActivationDistance",
+   "ruta": null,
+   "actual": null,
+   "nuevo": 4.1,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x4a0f8d0",
+   "confianza": "PROBABLE",
+   "motivo": "proteccion PES con rival < 1.25 m = 4.1 pies"
+  },
+  {
+   "grupo": "?",
+   "instancia": "?",
+   "campo": "dist_from_cutoff_for_shield_dribble",
+   "ruta": null,
+   "actual": null,
+   "nuevo": 4.1,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x5147b10 / 0x51775f0",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  },
+  {
+   "grupo": "?",
+   "instancia": "?",
+   "campo": "protectball_ShieldDelay",
+   "ruta": null,
+   "actual": null,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x4cbdbb0",
+   "confianza": "PROBABLE",
+   "motivo": "PES protege sin retardo"
+  },
+  {
+   "grupo": "?",
+   "instancia": "?",
+   "campo": "TeamTraitDribblingDribbleFrequencyMinMod",
+   "ruta": null,
+   "actual": null,
+   "nuevo": "neutro",
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x4ccf560",
+   "confianza": "PROBABLE",
+   "motivo": "sin rasgos de equipo en PES"
+  }
+ ]
+}

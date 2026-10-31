@@ -1,0 +1,22 @@
+{
+ "sistema": "movimiento - contacto entre jugadores (forcejeo, tambaleo, caida)",
+ "fuente": "G:\\ProyFIFA\\equipo\\movimiento\\ENGANCHES_CONTACTO.md",
+ "codigo": "G:\\ProyFIFA\\equipo\\movimiento\\consola\\pes_contacto_consola.c",
+ "depende_de": [
+  "G:\\ProyFIFA\\equipo\\movimiento\\pes_movimiento.c (pes_contacto_clasificar/final, pes_velocidad_relativa, pes_atributo_partido)",
+  "G:\\ProyFIFA\\equipo\\integracion\\comun\\pes_bloque.c (pes_c_contact cargado por perfil)",
+  "G:\\ProyFIFA\\equipo\\integracion\\entradas\\jugador_fc.c (jugador_fc_desde_q)"
+ ],
+ "include": ["G:\\ProyFIFA\\equipo\\integracion\\comun", "G:\\ProyFIFA\\equipo\\movimiento"],
+ "control": "g_pes.activos bit PES_BIT_CONTACTO (propuesto 4: los bits 0-3 ya estan asignados; definir -DPES_BIT_CONTACTO=n si se elige otro) Y g_pes.modo != 0 Y g_contacto.activos bit0 (marca 'PESCONTACTO v1'). g_contacto.sombra = 1: calcula sin cambiar (anillo de 16). Sin bit: devuelve el acoso de FC sin tocar.",
+ "confianza": "Punto, argumentos y camino al rival DEMOSTRADOS por desensamblado/Ghidra de 0x51ac6e0/0x51af970/0x51b0020/0x51b3190; equivalencia nivel PES -> acoso FC PROBABLE (umbrales gp_defense_pushpull); SIN MEDIR (medir_mov.py m5e)",
+ "enganches": [
+  {"id": "C1", "va": "0x51ad0ec", "original": "e87f280000", "forma": "rel32", "destino": "pes_contacto_acoso", "bit": 4,
+   "que": "unica llamada a 0x51af970 (acoso que recibe el jugador de su rival, float xmm0) dentro de 0x51ac6e0; su valor va a 0x51b0020 (reaccion) y, por 0x55b2cc0, a 0x51b3190 (caida)"}
+ ],
+ "simbolos": {"fc_contacto_acoso": "0x51af970"},
+ "no_enganchados": {
+  "0x51b0020 / 0x51b3190": "lectores del acoso (2 llamadas cada uno, todas en 0x51ac6e0): no hace falta tocarlos; reciben el valor de C1",
+  "prologo 0x51af970": "554889e54157415641554154534883ec78 (17 B) no hace falta (una sola llamada directa, sin Rela)"
+ }
+}

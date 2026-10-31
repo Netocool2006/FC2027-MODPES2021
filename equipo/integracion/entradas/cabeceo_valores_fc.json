@@ -1,0 +1,160 @@
+{
+ "sistema": "cabeceo (agente conduccion, fase 6)",
+ "fuente": "G:\\ProyFIFA\\equipo\\conduccion\\TRADUCCION_FC.md §11",
+ "nota": "Ningun mod cambia cabeceos: mismos valores en Original y Holland. Logica (b): pes_cabeceo.c.",
+ "cambios": [
+  {
+   "grupo": "gp_actor",
+   "instancia": "gp_actor_movement_runtime",
+   "campo": "AnimationPlaybackTimeRatioHeading",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_actor/gp_actor_movement_runtime/AnimationPlaybackTimeRatioHeading",
+   "actual": [
+    1.2000000476837158,
+    1.2000000476837158,
+    1.2000000476837158,
+    1.2000000476837158,
+    1.2000000476837158,
+    1.190000057220459,
+    1.159999966621399,
+    1.0800000429153442,
+    1.0,
+    0.8999999761581421,
+    0.800000011920929
+   ],
+   "nuevo": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "PES no acelera las mociones de cabeza por atributo (no hay lectura de Cabeceo/Salto en la seleccion de mocion de cabeza)"
+  },
+  {
+   "grupo": "gp_kickerror",
+   "instancia": "gp_kickerror_balltouch_runtime",
+   "campo": "ATTR_BallTouchHeadSpeedModifierForPowerHeader",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_kickerror/gp_kickerror_balltouch_runtime/ATTR_BallTouchHeadSpeedModifierForPowerHeader",
+   "actual": 1.100000023841858,
+   "nuevo": 1.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x4cb99b0",
+   "confianza": "PROBABLE",
+   "motivo": "sin bonificacion de potencia por rasgo en PES"
+  },
+  {
+   "grupo": "gp_collision",
+   "instancia": "gp_collision_playercollision_runtime",
+   "campo": "HeaderVelocityCompBasedOnStrengthDiff",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_collision/gp_collision_playercollision_runtime/HeaderVelocityCompBasedOnStrengthDiff",
+   "actual": [
+    [
+     -1.0,
+     0.30000001192092896
+    ],
+    [
+     -0.5,
+     0.30000001192092896
+    ],
+    [
+     -0.4000000059604645,
+     0.30000001192092896
+    ],
+    [
+     -0.2801302969455719,
+     0.3857142925262451
+    ],
+    [
+     -0.20000000298023224,
+     0.5
+    ],
+    [
+     -0.10000000149011612,
+     0.75
+    ],
+    [
+     0.0,
+     1.0
+    ],
+    [
+     1.0,
+     1.0
+    ]
+   ],
+   "nuevo": "curva_plana:1.0",
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "PES no recorta la velocidad del cabezazo por diferencia de fuerza; el duelo se decide por alcance (0xa6de20) y contacto (contact.o)"
+  },
+  {
+   "grupo": "gp_twoplayerheader",
+   "instancia": "gp_twoplayerheader_twoplayerheader_runtime",
+   "campo": "TPH_INTERACTION_Master_Aerial_Loser_TouchAdvantage",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_twoplayerheader/gp_twoplayerheader_twoplayerheader_runtime/TPH_INTERACTION_Master_Aerial_Loser_TouchAdvantage",
+   "actual": 15.0,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "0x7658120",
+   "confianza": "PROBABLE",
+   "motivo": "PES no tiene interaccion guionizada de dos cabeceadores"
+  },
+  {
+   "grupo": "gp_playerattribute",
+   "instancia": "gp_playerattribute_traits_runtime",
+   "campo": "AerialMaster_HeightBoost",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_playerattribute/gp_playerattribute_traits_runtime/AerialMaster_HeightBoost",
+   "actual": 0.25,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "el alcance de PES solo depende de Altura y Salto (0xa6de20); HEADER solo suma +5 de Cabeceo en remates"
+  },
+  {
+   "grupo": "gp_playerattribute",
+   "instancia": "gp_playerattribute_traits_runtime",
+   "campo": "AerialMaster_Icon_HeightBoost",
+   "ruta": "/fifa/attribulator/gameplay/groups/gp_playerattribute/gp_playerattribute_traits_runtime/AerialMaster_Icon_HeightBoost",
+   "actual": 0.5,
+   "nuevo": 0.0,
+   "perfiles": [
+    "PES2021_Original",
+    "PES2021_Holland"
+   ],
+   "forma": "a",
+   "getter": "",
+   "confianza": "PROBABLE",
+   "motivo": "idem"
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+  "sistema": "curva_fatiga_resistencia",
+  "descripcion": "Subsistema 3: Curva de Fatiga y Resistencia Dinamica PES 2021 (desgaste acumulativo, penalizacion de sprint y fatiga real en jugador controlado)",
+  "parametros": [
+    {
+      "grupo": "gp_playerattribute",
+      "instancia": "gp_playerattribute_attributes",
+      "offset_instancia": "0x20",
+      "campos": [
+        {
+          "nombre": "DisableFatigueOnControlledPlayer",
+          "offset": "0x101",
+          "tipo": "bool",
+          "fc": true,
+          "pes": false,
+          "motivo": "En FC el usuario humano tiene fatiga deshabilitada o fuertemente amortiguada en sprint; en PES el cansancio afecta a todos por igual"
+        },
+        {
+          "nombre": "ATTR_ShortTermFatigueSlowdownThreshold",
+          "offset": "0xe8",
+          "tipo": "f32",
+          "fc": 0.84,
+          "pes": 0.70,
+          "motivo": "Dispara la penalizacion de sprint antes, impidiendo carreras a fondo continuas de costa a costa"
+        },
+        {
+          "nombre": "ATTR_ShortTermFatigueSlowdownRate",
+          "offset": "0xe0",
+          "tipo": "f32",
+          "fc": 0.25,
+          "pes": 0.38,
+          "motivo": "Aumenta la caida de velocidad instantanea cuando el jugador entra en zona de agotamiento por sprint"
+        },
+        {
+          "nombre": "ATTR_LongTermFatigueSpeedFactor",
+          "offset": "0xec",
+          "tipo": "f32",
+          "fc": 0.95,
+          "pes": 0.85,
+          "motivo": "En los minutos finales (fatiga acumulada alta), reduce la velocidad punta al 85% emulando el ritmo pausado de PES"
+        },
+        {
+          "nombre": "fixedShortTermFatigueModifier",
+          "offset": "0xc0",
+          "tipo": "f32",
+          "fc": 0.95,
+          "pes": 1.15,
+          "motivo": "Incrementa la tasa de consumo de resistencia anaerobica durante cambios de ritmo e intensidades altas"
+        },
+        {
+          "nombre": "fixedLongTermFatigueModifier",
+          "offset": "0xf8",
+          "tipo": "f32",
+          "fc": 0.90,
+          "pes": 1.10,
+          "motivo": "Acelera el desgaste cronico a lo largo de los 90 minutos obligando al uso tactico de sustituciones"
+        },
+        {
+          "nombre": "fatigueModifierForPressureTactics",
+          "offset": "0xd8",
+          "tipo": "f32",
+          "fc": 6.50,
+          "pes": 8.00,
+          "motivo": "Castiga severamente la presion asfixiante constante impidiendo el exploit de pressing continuo"
+        }
+      ]
+    }
+  ]
+}
