@@ -11,6 +11,7 @@
 #include <sys/sysctl.h>
 #include <sys/user.h>
 #include <ps5/kernel.h>
+#include "../modo_pes.h"
 
 typedef struct __attribute__((packed)) {
     uint32_t app_id;
@@ -50,6 +51,22 @@ static void *sysctl_todo(int *mib, unsigned n, size_t *tam) {
         free(b);
     }
     return NULL;
+}
+
+static uint64_t base_ejecutable(pid_t pid) {
+    int mib[4] = {CTL_KERN, KERN_PROC, KERN_PROC_VMMAP, pid};
+    size_t tam = 0;
+    char *b = sysctl_todo(mib, 4, &tam);
+    uint64_t base = 0;
+    if (!b) return 0;
+    for (size_t pos = 0; pos + sizeof(struct kinfo_vmentry) <= tam;) {
+        struct kinfo_vmentry *v = (void *)(b + pos);
+        if (v->kve_structsize < (int)sizeof(*v) || (size_t)v->kve_structsize > tam - pos) break;
+        if (!strcmp(v->kve_path, "executable") && (!base || v->kve_start < base)) base = v->kve_start;
+        pos += v->kve_structsize;
+    }
+    free(b);
+    return base;
 }
 
 static inline bool addr_valida(uint64_t a) {
@@ -210,6 +227,8 @@ int main(void) {
 
     int ultimo_modo = -1;
     uint64_t ultima_db = 0;
+    pid_t ultimo_pid = 0;
+    uint64_t ultima_base = 0;
 
     for (;;) {
         int mib[4] = {CTL_KERN, KERN_PROC, KERN_PROC_PROC, 0};
@@ -236,15 +255,28 @@ int main(void) {
         }
 
         if (fc_pid > 0) {
-            uint64_t base = 0x400000ULL;
-            uint64_t addr_modo = base + 0x15600060ULL;
-            int modo_actual = 0;
+            uint64_t base = base_ejecutable(fc_pid);
+            if (!base) { usleep(500000); continue; }
+            if (fc_pid != ultimo_pid || base != ultima_base) {
+                ultimo_modo = -1;
+                ultima_db = 0;
+                ultimo_pid = fc_pid;
+                ultima_base = base;
+            }
+            int modo_actual = DEFAULT_PES;
+
+            /* El selector deja de ser requisito de arranque. Reafirmar PES
+             * tambien si FC reinicializa sus ajustes durante la carga. */
+            if (asegurar_modo_pes(fc_pid, base) != 1) {
+                usleep(500000);
+                continue;
+            }
 
             /* Asegurar g_ia_mtp.activos = 0 siempre para evitar congelacion de los 3 defensas */
             uint32_t val_ia_mtp = 0;
             kernel_proc_copyin(fc_pid, &val_ia_mtp, (intptr_t)(base + 0x1561dee0ULL), sizeof(val_ia_mtp));
 
-            if (kernel_proc_copyout(fc_pid, (intptr_t)addr_modo, &modo_actual, sizeof(modo_actual)) == 0) {
+            {
                 uint64_t db_addr = resolver_db(fc_pid, base);
 
                 if (modo_actual != ultimo_modo || (db_addr != 0 && db_addr != ultima_db)) {
@@ -263,6 +295,8 @@ int main(void) {
         } else {
             ultimo_modo = -1;
             ultima_db = 0;
+            ultimo_pid = 0;
+            ultima_base = 0;
             usleep(2000000);
         }
     }

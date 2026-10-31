@@ -12,9 +12,7 @@
 #include <fcntl.h>
 #include <ps5/kernel.h>
 #endif
-#ifndef DEFAULT_PES
-#define DEFAULT_PES 0
-#endif
+#include "modo_pes.h"
 typedef struct {
  uint32_t group, instance; uint64_t stat; uint32_t offset;
  int index; unsigned count, size; uint32_t value; unsigned n;
@@ -132,12 +130,13 @@ int main(void) {
   int pid=find_game(); uint64_t base=pid?find_base(pid):0;
   if(pid!=previous || base!=old_base) { memset(saved,0,sizeof(saved)); previous=pid; old_base=base; last_mode=-9; }
   if(pid && valid(base)) {
-   int mode=-1; int readable=rd(pid,base+0x15600060,&mode,4);
-   int enabled=readable && (mode==1 || mode==2);
-   if(!readable) enabled=DEFAULT_PES;
+   int mode=asegurar_modo_pes(pid,base);
+   /* Esperar al bloque compatible; nunca restaurar FC por un fallo transitorio. */
    if(mode!=last_mode) { logline(pid,"modo",(unsigned)mode); last_mode=mode; }
-   unsigned changed=tick(pid,base,enabled);
-   if(changed) logline(pid,enabled?"escritos":"restaurados",changed);
+   if(mode==1) {
+    unsigned changed=tick(pid,base,1);
+    if(changed) logline(pid,"escritos",changed);
+   }
   }
   sleep(2);
  }
