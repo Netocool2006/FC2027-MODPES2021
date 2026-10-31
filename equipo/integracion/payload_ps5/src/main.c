@@ -11,6 +11,8 @@
 #include <sys/sysctl.h>
 #include <sys/user.h>
 #include <ps5/kernel.h>
+#include <sys/file.h>
+#include <fcntl.h>
 #include "../modo_pes.h"
 
 typedef struct __attribute__((packed)) {
@@ -222,8 +224,13 @@ static void aplicar_parches_nativo(pid_t pid, uint64_t db, bool activar_pes) {
 }
 
 int main(void) {
+    int lock = open("/data/pes2021_fc.lock", O_CREAT | O_RDWR, 0600);
+    if (lock < 0 || flock(lock, LOCK_EX | LOCK_NB)) return 1;
+    EstadoModoPes modo_estado = {0};
+    int inicial;
+    reg("Persistencia /data/pes_modo.cfg: %s", cargar_modo_pes(&inicial) ? "lista" : "error; se reintentara");
     notificar("PES 2021 Daemon Nativo Iniciado");
-    reg("Daemon Nativo PES 2021 (Autonomo en PS5) cargado con exito\n");
+    reg("Daemon persistencia v1 PID=%d cargado con exito", (int)getpid());
 
     int ultimo_modo = -1;
     uint64_t ultima_db = 0;
@@ -258,6 +265,7 @@ int main(void) {
             uint64_t base = base_ejecutable(fc_pid);
             if (!base) { usleep(500000); continue; }
             if (fc_pid != ultimo_pid || base != ultima_base) {
+                memset(&modo_estado, 0, sizeof modo_estado);
                 ultimo_modo = -1;
                 ultima_db = 0;
                 ultimo_pid = fc_pid;
@@ -265,12 +273,14 @@ int main(void) {
             }
             int modo_actual = DEFAULT_PES;
 
-            /* El selector deja de ser requisito de arranque. Reafirmar PES
-             * tambien si FC reinicializa sus ajustes durante la carga. */
-            if (asegurar_modo_pes(fc_pid, base) != 1) {
+            /* Disco solo al conectar; despues el selector manda. */
+            if (sincronizar_modo_pes(fc_pid, base, &modo_estado, &modo_actual) != 1) {
                 usleep(500000);
                 continue;
             }
+
+            if (modo_estado.dirty) reg("Error guardando modo %d; se reintentara", modo_actual);
+            if (modo_actual != ultimo_modo) reg("Selector modo=%d persistido=%s", modo_actual, modo_estado.dirty ? "no" : "si");
 
             /* Asegurar g_ia_mtp.activos = 0 siempre para evitar congelacion de los 3 defensas */
             uint32_t val_ia_mtp = 0;
@@ -283,7 +293,7 @@ int main(void) {
                     if (modo_actual == 1 || modo_actual == 2) {
                         aplicar_parches_nativo(fc_pid, db_addr, true);
                         notificar(modo_actual == 1 ? "PES 2021 Original Activado" : "PES 2021 Holland Activado");
-                    } else if (ultimo_modo == 1 || ultimo_modo == 2) {
+                    } else {
                         aplicar_parches_nativo(fc_pid, db_addr, false);
                         notificar("EA FC 27 Modo Nativo Restaurado");
                     }
@@ -293,6 +303,7 @@ int main(void) {
             }
             usleep(500000);
         } else {
+            memset(&modo_estado, 0, sizeof modo_estado);
             ultimo_modo = -1;
             ultima_db = 0;
             ultimo_pid = 0;

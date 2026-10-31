@@ -125,16 +125,20 @@ int main(void) {
  int lock=open("/data/pes2021_fc.lock",O_CREAT|O_RDWR,0600);
  if(lock<0 || flock(lock,LOCK_EX|LOCK_NB)) return 1;
  logline(0,"daemon activo; default",DEFAULT_PES);
+ EstadoModoPes modo_estado={0};
+ int inicial; cargar_modo_pes(&inicial);
  int previous=0,last_mode=-9; uint64_t old_base=0;
  for(;;) {
   int pid=find_game(); uint64_t base=pid?find_base(pid):0;
-  if(pid!=previous || base!=old_base) { memset(saved,0,sizeof(saved)); previous=pid; old_base=base; last_mode=-9; }
+  if(pid!=previous || base!=old_base) { memset(&modo_estado,0,sizeof(modo_estado)); memset(saved,0,sizeof(saved)); previous=pid; old_base=base; last_mode=-9; }
   if(pid && valid(base)) {
-   int mode=asegurar_modo_pes(pid,base);
+   int mode=-1;
+   if(sincronizar_modo_pes(pid,base,&modo_estado,&mode)!=1) { sleep(2); continue; }
+   if(modo_estado.dirty) logline(pid,"error guardando modo",(unsigned)mode);
    /* Esperar al bloque compatible; nunca restaurar FC por un fallo transitorio. */
    if(mode!=last_mode) { logline(pid,"modo",(unsigned)mode); last_mode=mode; }
-   if(mode==1) {
-    unsigned changed=tick(pid,base,1);
+   if(mode>=0 && mode<=2) {
+    unsigned changed=tick(pid,base,mode!=0);
     if(changed) logline(pid,"escritos",changed);
    }
   }

@@ -58,3 +58,14 @@ Copia el archivo `distribucion/eboot.bin` a la ruta de ShadowMount / backports d
 ---
 
 Para más detalles sobre la ingeniería inversa y el código fuente, consulta [DOC_TECNICA.md](DOC_TECNICA.md).
+
+### Persistencia del selector
+
+El daemon recuerda la ultima seleccion en `/data/pes_modo.cfg`: PES 2021
+por defecto si no hay estado guardado, o FC si fue la ultima eleccion.
+Al abrir FC aplica el estado una sola vez; despues respeta el menu y guarda
+los cambios automaticamente. Espera al menos 2 segundos tras cambiar la
+opcion antes de cerrar el juego o reiniciar la consola. El archivo conserva
+un historial: la ultima linea no vacia indica el modo vigente (0 FC, 1 PES
+Original, 2 Holland compatible). Requiere Payload Manager en autoload tras
+activar el jailbreak.

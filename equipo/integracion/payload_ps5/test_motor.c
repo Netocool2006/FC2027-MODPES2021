@@ -26,31 +26,51 @@ static int kernel_proc_copyin(int pid,const void *b,intptr_t a,size_t n) {
  memcpy(memory+a-0x10000,b,n); writes++; return 0;
 }
 static int kernel_get_vmem_protection(int pid,intptr_t a,size_t n) { (void)pid;(void)a;(void)n;return protection; }
+#include <io.h>
+#define fsync _commit
+static const char *test_path;
+#define PES_MODO_PATH test_path
 #include "main.c"
 static void put64(uint64_t a,uint64_t v) { assert(!kernel_proc_copyin(1,&v,a,8)); }
 static void put32(uint64_t a,uint32_t v) { assert(!kernel_proc_copyin(1,&v,a,4)); }
-int main(void) {
- /* Arranque frio, reset del menu y proceso nuevo: siempre PES Original. */
+int main(int argc, char **argv) {
+ assert(argc==2); test_path=argv[1];
+ EstadoModoPes session={0}; int mode=-1, disk=-1;
  memcpy(state,"PESMODE bloque consola v1",25);
  put32(TEST_BLOCK+0x6c,1); put32(TEST_BLOCK+0x70,0xffffffff);
- for(int mode=0;mode<=2;mode++) {
-  put32(TEST_BLOCK+0x60,(uint32_t)mode); writes=0;
-  assert(asegurar_modo_pes(mode+1,TEST_BASE)==1);
-  assert(writes==(mode!=1));
-  uint32_t value=0;
-  assert(rd(1,TEST_BLOCK+0x60,&value,4) && value==1);
-  assert(rd(1,TEST_BLOCK+0x70,&value,4) && value==0xffffffff);
- }
- writes=0; assert(asegurar_modo_pes(1,TEST_BASE)==1 && writes==0);
  put32(TEST_BLOCK+0x60,0); writes=0;
- fail_read=1; assert(asegurar_modo_pes(1,TEST_BASE)==0 && writes==0); fail_read=0;
- fail_write=1; assert(asegurar_modo_pes(1,TEST_BASE)==0 && writes==0); fail_write=0;
- protection=1; assert(asegurar_modo_pes(1,TEST_BASE)==0 && writes==0); protection=3;
- assert(asegurar_modo_pes(1,TEST_BASE)==1); /* reintento */
- state[0]='X'; writes=0; assert(asegurar_modo_pes(1,TEST_BASE)==-1 && writes==0); state[0]='P';
- put32(TEST_BLOCK+0x6c,2); writes=0; assert(asegurar_modo_pes(1,TEST_BASE)==-1 && writes==0);
- put32(TEST_BLOCK+0x6c,1); put32(TEST_BLOCK+0x60,99); writes=0;
- assert(asegurar_modo_pes(1,TEST_BASE)==-1 && writes==0);
+ assert(sincronizar_modo_pes(1,TEST_BASE,&session,&mode)==1 && mode==1 && writes==1);
+ assert(cargar_modo_pes(&disk) && disk==1);
+ /* Cambios reales del menu no generan escrituras en memoria. */
+ for(int selected=0;selected<=2;selected++) {
+  put32(TEST_BLOCK+0x60,selected); writes=0;
+  assert(sincronizar_modo_pes(1,TEST_BASE,&session,&mode)==1 && mode==selected && writes==0);
+  assert(cargar_modo_pes(&disk) && disk==selected);
+  assert(sincronizar_modo_pes(1,TEST_BASE,&session,&mode)==1 && writes==0);
+ }
+ /* Reinicio con FC guardado y memoria inicialmente en PES. */
+ assert(guardar_modo_pes(0)); memset(&session,0,sizeof session);
+ assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==1 && mode==0);
+ uint32_t value; assert(rd(1,TEST_BLOCK+0x70,&value,4) && value==0xffffffff);
+ fail_read=1; writes=0;
+ assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==0 && writes==0); fail_read=0;
+ assert(guardar_modo_pes(1)); memset(&session,0,sizeof session);
+ fail_write=1; assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==0); fail_write=0;
+ protection=1; assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==0); protection=3;
+ assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==1 && mode==1);
+ state[0]='X'; writes=0; assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==-1 && writes==0); state[0]='P';
+ put32(TEST_BLOCK+0x6c,2); assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==-1);
+ put32(TEST_BLOCK+0x6c,1); put32(TEST_BLOCK+0x60,99);
+ assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==-1);
+ /* Guardado fallido: respetar menu y reintentar sin tocar memoria. */
+ const char *real_path=test_path; test_path="Z:/no-existe/pes_modo.cfg";
+ put32(TEST_BLOCK+0x60,0); writes=0;
+ assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==1 && mode==0 && session.dirty && writes==0);
+ test_path=real_path;
+ assert(sincronizar_modo_pes(2,TEST_BASE,&session,&mode)==1 && !session.dirty && writes==0);
+ assert(cargar_modo_pes(&disk) && disk==0);
+ FILE *bad=fopen(test_path,"a"); assert(bad); fputs("\ninvalid\n",bad); assert(!fclose(bad));
+ assert(cargar_modo_pes(&disk) && disk==1);
  const Patch *p=&patches[0]; uint64_t obj=0x18000, a=obj+p->offset;
  /* La base sintetica coloca la raiz en memoria del mock. */
  uint64_t base=0x10000ULL-0x11d9cae8ULL;
@@ -75,6 +95,6 @@ int main(void) {
   put32(0x1dffc,arr->count+1); assert(!address(1,obj,arr)); break;
  }
  put64(0x14000+p->instance,0); writes=0; tick(1,base,0); assert(writes==0 && !saved[0][0].owned);
- puts("OK: arranque PES, reenganche, firma/version, permisos, reintentos, perfil intacto; rutas, arrays, idempotencia, conflictos y errores");
+ puts("OK: persistencia PES/FC/Holland, reinicio, selector respetado, fallo disco y reintento, firma/version, perfil intacto; rutas, arrays, idempotencia, conflictos y errores");
  return 0;
 }

@@ -1,60 +1,54 @@
-# Arranque autonomo PES Original (2026-10-31)
+# Persistencia del selector PES / FC (2026-10-31)
 
-## Causa comprobada
+La politica anterior escribia modo=1 en cada ciclo e impedia elegir FC.
+Ambos daemons usan ahora modo_pes.h para aplicar el estado del disco una
+sola vez por PID/base del juego. Despues leen el selector sin sobrescribirlo.
 
-El ELF distribuido y el instalado en 192.168.0.44:2121 tienen SHA256
-`7a976c9d5a668d556b971370cd10c46f4f1ca84a7df368eb5afb10aac0be8419`.
-Corresponden a la ruta `src/main.c` / `compilar.sh`. Esa ruta esperaba
-que el menu escribiera modo 1/2. En `distribucion/eboot.bin` el bloque
-`PESMODE bloque consola v1` contiene modo 0, version 1 y perfil_cargado -1.
-La otra ruta (`main.c`) usaba DEFAULT_PES=0, solo como fallback de lectura.
-La consola ya incluye `pes2021_fc.elf` en `/data/pldmgr/autoload.txt`.
+/data/pes_modo.cfg se crea con 1 (PES Original) si falta o es invalido.
+0 conserva FC; 1 conserva PES; tambien se mantiene compatibilidad con 2
+(PES Holland), presente en el menu existente. Se guarda solo cuando cambia
+el selector, mediante append y fsync. La ultima linea no vacia es el valor
+vigente: las lineas anteriores se conservan para no destruir informacion.
+Un archivo manual con un solo digito tambien es valido.
 
-## Cambio y alcance
+Los errores de lectura de memoria no se convierten en cambios de modo.
+Los errores de escritura a disco se registran y reintentan mientras el juego
+sigue conectado, sin restaurar un valor viejo en memoria. Firma, version,
+permisos y perfil_cargado conservan sus comprobaciones. Un lock impide dos
+instancias nuevas simultaneas; no bloquea daemons antiguos sin ese lock.
 
-Ambas rutas usan `modo_pes.h`: DEFAULT_PES=1 y escritura verificada de
-`base + 0x15600060` en cada ciclo, tras comprobar firma, version, modo conocido
-y permisos RW. Fallos temporales se reintentan. La ruta distribuida resuelve
-ahora la base del ejecutable y reinicia su estado al cambiar PID/base.
-No se escribe `perfil_cargado`: el integrador C16 detecta la diferencia
-con modo y llama `pes_bloque_iniciar_partido`, que carga parametros y bits.
-No existe un campo `perfil_pes` en `pes_estado`.
+La variante distribuida es src/main.c. Su sondeo es de 500 ms con FC abierto
+y 2 s sin juego; main.c sondea cada 2 s. El modo FC tambien restaura los
+parches cuando la BD aparece despues del cambio de selector. Se conserva
+la correccion de IA MTP. Requiere el eboot modificado compatible y autoload
+del payload tras activar el jailbreak.
 
-Esta politica mantiene PES Original: una seleccion posterior 0/2 vuelve a 1
-en el siguiente ciclo. Se conserva la correccion existente de IA MTP.
-No instala hooks nuevos: requiere el eboot modificado compatible ya instalado.
-No garantiza latencia de un milisegundo: sondeo de 2 s sin juego y 500 ms con
-juego en src/main.c; 2 s en main.c. Los hooks cargan el perfil al ejecutarse.
+Compilar con compilar.ps1 en una carpeta nueva. Test_motor usa mocks de
+memoria y un archivo real en una ruta nueva pasada como argumento; cubre
+arranque por defecto, FC persistido tras reconectar, cambios 0/1/2 sin
+escrituras forzadas, archivo invalido, fallo de disco/reintento, firma,
+version, permisos y regresiones del motor de parches.
 
-## Compilacion y candidato
+Limites: esperar al menos 2 segundos despues de cambiar el selector antes
+de cerrar/reiniciar. Un cierre antes del siguiente sondeo o un fallo de disco
+persistente puede perder el ultimo cambio. El historial crece 3 bytes por
+cambio y no se compacta. La comprobacion de reinicio fisico y del selector
+real requiere abrir FC en consola; los mocks no acreditan esos pasos.
 
-`compilar.ps1` y `compilar.sh` compilan por defecto `src/main.c` en una carpeta
-nueva y rechazan reemplazar salidas existentes. Para el motor alternativo:
-`compilar.ps1 -Source main.c`. Se utilizo el PS5 Payload SDK local con Clang,
-`-Wall -Wextra -Werror`; ambas variantes compilaron y readelf valido ELF64 DYN
-x86-64 FreeBSD. El test_motor ampliado paso con mocks de memoria remota:
-modos 0/1/2, reenganche, idempotencia, firma/version, permisos, errores y
-reintentos, perfil sin falsificar, y regresiones del motor de parches.
+## Despliegue verificado
 
-Candidato de la ruta distribuida: `distribucion/pes2021_fc.default-pes.elf`.
-SHA256: `7d315d1dbe14499700b62f52ec7d264eaafa8bc616938d2bf814c6570b3d690e`.
+Distribucion/pes2021_fc.elf y PS5 /data/pldmgr/payloads/pes2021_fc.elf:
+SHA256 89f7c8d0548ffdff178a92efdf54545f656a5f53022f917912d12a5f6d25266f
+(111992 bytes). Respaldos conservados en
+G:\ProyFIFA\respaldo_consola\persistencia-3a5eef9b98ae y en PS5
+/data/pes2021_fc.antes-persistencia-3a5eef9b98ae.bak.
 
-## Despliegue pendiente de confirmacion
+Payload Manager confirmo parada de PID 95 y carga del nuevo ELF. Su log
+identifica PID 120 y confirma persistencia lista; FTP comprobo el archivo
+creado por el daemon con valor 1. Autoload ya contiene pes2021_fc.elf.
+FC estaba cerrado. Pendiente prueba manual del selector y reinicio fisico.
 
-No se reemplazaron binarios existentes ni se modifico la consola. La norma
-del usuario exige confirmacion antes de sustituirlos. Destinos pendientes:
-
-- `G:\ProyFIFA\distribucion\pes2021_fc.elf`
-- `G:\ProyFIFA\equipo\integracion\payload_ps5\salida\pes2021_fc.elf`
-- PS5 `192.168.0.44`: `/data/pldmgr/payloads/pes2021_fc.elf`
-
-El ELF alternativo `payload_ps5/pes2021_fc.elf` tambien sigue siendo el anterior;
-su compilacion nueva esta en `payload_ps5/build-default-pes-20261031/`.
-No ejecutar instalar_ftp.py para este despliegue: apunta a una subcarpeta
-distinta de la ruta activa comprobada en la consola.
-
-Tras autorizar la sustitucion: conservar respaldos, instalar el candidato,
-comparar SHA256 por RETR y verificar arranque frio y reapertura del juego.
-FTP no sustituye un proceso ya residente. Falta verificar en consola que
-modo=1, perfil_cargado=1 y errores_carga=0, junto con parametros y bits activos.
-Las pruebas con mocks no acreditan la ejecucion real de todos los hooks.
+Clang compilo ambas variantes con -Wall -Wextra -Werror. Readelf identifica
+ELF64 DYN FreeBSD x86-64; advierte del tamano de PT_DYNAMIC del ELF distribuido
+(el segmento del SDK incluye otras secciones). Payload Manager lo cargo y
+el proceso ejecuto correctamente la creacion y sincronizacion del archivo.
